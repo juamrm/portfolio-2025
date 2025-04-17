@@ -1,6 +1,6 @@
 import React from "react";
 import { Separator } from "../../components/ui/separator";
-import profilePhoto from "../../assets/Foto Juliana.jpeg";
+import profileSVG from "../../assets/Foto Juliana 1.svg";
 
 export const PortfolioAboutPage = (): JSX.Element => {
   // Skills and software data
@@ -23,24 +23,26 @@ export const PortfolioAboutPage = (): JSX.Element => {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-20 md:pt-40 max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-20 md:mb-32">
+      <section className="pt-2 md:pt-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-20 md:mb-32 items-center">
           {/* Left column with heading */}
-          <div className="md:col-span-7 flex flex-col justify-start">
+          <div className="md:col-span-6 flex flex-col justify-center h-full">
             <h1 className="font-heading-1 font-[number:var(--heading-1-font-weight)] text-main-black text-4xl md:text-5xl tracking-tight leading-tight mb-6">
               Hi I&apos;m Juliana Amorim.
               <br />
-              <span className="text-app-secondary">Web and Product Designer.</span>
+              <span className="text-app-secondary">
+                Web and Product Designer.
+              </span>
             </h1>
           </div>
 
           {/* Right column with image */}
-          <div className="md:col-span-5 flex justify-center md:justify-end items-center">
+          <div className="md:col-span-6 flex justify-center items-center h-full">
             <div className="w-[220px] h-[220px] overflow-hidden rounded-full border-4 border-[#f8f8f8] shadow-sm">
               <img
                 className="w-full h-full object-cover object-center"
                 alt="Profile photo"
-                src={profilePhoto}
+                src={profileSVG}
               />
             </div>
           </div>
@@ -54,37 +56,62 @@ export const PortfolioAboutPage = (): JSX.Element => {
               About Me
             </h2>
           </div>
-          
+
           {/* Right column for content */}
           <div className="md:col-span-8">
             <div className="space-y-6 text-main-gray">
               <p className="font-body text-lg leading-relaxed">
-                I'm Juliana Amorim, a Full-Stack Web Developer and UX/UI Designer dedicated to crafting intuitive and impactful digital experiences.
+                I'm Juliana Amorim, a Full-Stack Web Developer and UX/UI
+                Designer dedicated to crafting intuitive and impactful digital
+                experiences.
               </p>
-              
+
               <div className="space-y-6 pl-0">
                 <div className="border-l-2 border-app-secondary pl-6 py-1">
-                  <h3 className="font-medium text-main-black mb-2">Factoría F5</h3>
-                  <p className="font-body text-base leading-relaxed">An inclusive digital school in Spain, offering intensive, high-impact training in mobile and web development, aiming to provide access to high-demand employment opportunities.</p>
+                  <h3 className="font-medium text-main-black mb-2">
+                    Factoría F5
+                  </h3>
+                  <p className="font-body text-base leading-relaxed">
+                    An inclusive digital school in Spain, offering intensive,
+                    high-impact training in mobile and web development, aiming
+                    to provide access to high-demand employment opportunities.
+                  </p>
                 </div>
-                
+
                 <div className="border-l-2 border-app-secondary pl-6 py-1">
-                  <h3 className="font-medium text-main-black mb-2">Instituto Tramontana</h3>
-                  <p className="font-body text-base leading-relaxed">A business school with a humanistic and multidisciplinary approach, focusing on elevating professionals who create products and services.</p>
+                  <h3 className="font-medium text-main-black mb-2">
+                    Instituto Tramontana
+                  </h3>
+                  <p className="font-body text-base leading-relaxed">
+                    A business school with a humanistic and multidisciplinary
+                    approach, focusing on elevating professionals who create
+                    products and services.
+                  </p>
                 </div>
-                
+
                 <div className="border-l-2 border-app-secondary pl-6 py-1">
-                  <h3 className="font-medium text-main-black mb-2">Nuclio Digital School</h3>
-                  <p className="font-body text-base leading-relaxed">A leading digital training institution in Spain, offering Master's programs in areas like UX/UI Design and Full Stack Development, emphasizing practical, hands-on learning.</p>
+                  <h3 className="font-medium text-main-black mb-2">
+                    Nuclio Digital School
+                  </h3>
+                  <p className="font-body text-base leading-relaxed">
+                    A leading digital training institution in Spain, offering
+                    Master's programs in areas like UX/UI Design and Full Stack
+                    Development, emphasizing practical, hands-on learning.
+                  </p>
                 </div>
               </div>
-              
+
               <p className="font-body text-base leading-relaxed pt-4">
-                My technical toolkit includes HTML, CSS, JavaScript, React, and Node.js, complemented by design tools like Figma, Framer, Webflow, and the Adobe Creative Suite.
+                My technical toolkit includes HTML, CSS, JavaScript, React, and
+                Node.js, complemented by design tools like Figma, Framer,
+                Webflow, and the Adobe Creative Suite.
               </p>
-              
+
               <p className="font-body text-base leading-relaxed">
-                I approach each project with a blend of design thinking and agile methodologies, ensuring solutions that are both user-centric and scalable. I'm passionate about collaborating on projects that merge aesthetics with functionality.
+                I approach each project with a blend of design thinking and
+                agile methodologies, ensuring solutions that are both
+                user-centric and scalable. I'm passionate about collaborating on
+                projects that merge aesthetics with functionality.
               </p>
             </div>
           </div>

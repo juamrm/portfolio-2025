@@ -2,8 +2,8 @@
   "version": "1.0.0",
   "source": "./index.html",
   "type": "module",
-  "name": "simple-portfolio-v25",
-  "description": "A React project using the Shadcn UI library",
+  "name": "portfolio-2025",
+  "description": "Juliana Amorim",
   "scripts": {
     "dev": "vite",
     "build": "vite build"

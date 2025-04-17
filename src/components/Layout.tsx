@@ -34,7 +34,7 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
     <div className="bg-[#f3f3f3] flex flex-row justify-center w-full">
       <div className="bg-[#f3f3f3] w-full max-w-[1440px] relative min-h-screen px-4 sm:px-8 md:px-16 lg:px-40">
         {/* Navigation */}
-        <header className="w-full pt-6 md:pt-[102px]">
+        <header className="w-full pt-16 md:pt-[120px]">
           <div className="flex flex-col md:flex-row justify-between items-center w-full gap-6 md:gap-0">
             <Link to="/" aria-label="Home page">
               <img
@@ -50,7 +50,7 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
                   <NavigationMenuItem key={item.name}>
                     <NavigationMenuLink
                       asChild
-                      className={`font-navigation font-[number:var(--navigation-font-weight)] text-sm md:text-[length:var(--navigation-font-size)] tracking-[var(--navigation-letter-spacing)] leading-[var(--navigation-line-height)] [font-style:var(--navigation-font-style)] ${
+                      className={`nav-underline-animate font-navigation font-[number:var(--navigation-font-weight)] text-sm md:text-[length:var(--navigation-font-size)] tracking-[var(--navigation-letter-spacing)] leading-[var(--navigation-line-height)] [font-style:var(--navigation-font-style)] ${
                         location.pathname === item.href
                           ? "text-app-secondary"
                           : "text-main-black"
@@ -72,7 +72,7 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
         </header>
 
         {/* Main Content */}
-        <main className="w-full mt-16 md:mt-[258px] pb-64">{children}</main>
+        <main className="w-full mt-12 md:mt-24 pb-64">{children}</main>
 
         {/* Contact Section */}
         <section id="contact" className="w-full mb-32">
@@ -116,7 +116,7 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="font-navigation font-[number:var(--navigation-font-weight)] text-main-black text-sm md:text-[length:var(--navigation-font-size)] tracking-[var(--navigation-letter-spacing)] leading-[var(--navigation-line-height)] whitespace-nowrap [font-style:var(--navigation-font-style)] focus:outline-none focus:ring-2 focus:ring-app-secondary focus:ring-offset-2 rounded-sm px-2"
+                  className="nav-underline-animate font-navigation font-[number:var(--navigation-font-weight)] text-main-black text-sm md:text-[length:var(--navigation-font-size)] tracking-[var(--navigation-letter-spacing)] leading-[var(--navigation-line-height)] whitespace-nowrap [font-style:var(--navigation-font-style)] focus:outline-none focus:ring-2 focus:ring-app-secondary focus:ring-offset-2 rounded-sm px-2"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Visit my ${link.name} profile`}
