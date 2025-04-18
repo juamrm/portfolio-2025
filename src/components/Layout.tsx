@@ -26,19 +26,38 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
     { name: i18n.t("navbar.contact"), href: "/contact" },
   ];
 
-
   const footerLinks = [
     { name: "Linkedin", href: "#" },
     { name: "Github", href: "#" },
   ];
 
-
   return (
     <div className="bg-[#f3f3f3] flex flex-row justify-center w-full">
       <div className="bg-[#f3f3f3] w-full max-w-[1440px] relative min-h-screen px-4 sm:px-8 md:px-16 lg:px-40">
         {/* Navigation */}
-        <header className="w-full pt-16 md:pt-[120px]">
-          <div className="flex flex-row items-center w-full gap-6 md:gap-0">
+        <header className="w-full pt-16 md:pt-[120px] md:relative">
+          {/* Mobile sticky header */}
+          <div className="fixed top-0 left-0 right-0 bg-[#f3f3f3] z-40 py-4 px-4 sm:px-8 md:hidden">
+            <div className="flex justify-between items-center max-w-[1440px] mx-auto">
+              <Link to="/" aria-label="Home page">
+                <img
+                  className="w-[67px] h-[23px]"
+                  alt="Site logo"
+                  src="/site-logo.svg"
+                />
+              </Link>
+              <div className="flex items-center">
+                <HamburgerMenu
+                  navigationItems={navigationItems}
+                  langDropdown={<LangDropdown i18n={i18n} />}
+                  i18n={i18n}
+                />
+              </div>
+            </div>
+          </div>
+          
+          {/* Desktop header */}
+          <div className="flex flex-row items-center w-full gap-6 md:gap-0 hidden md:flex">
             <Link to="/" aria-label="Home page">
               <img
                 className="w-[67px] h-[23px]"
@@ -55,21 +74,21 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
                       e.preventDefault();
                       navigate(item.href);
                     };
-                    
+
                     return (
                       <NavigationMenuItem key={item.name}>
                         <NavigationMenuLink asChild>
                           <div onClick={handleClick} className="cursor-pointer">
                             <RollingLink
-  to={item.href}
-  className={`font-navigation font-[number:var(--navigation-font-weight)] text-main-black text-base md:text-lg tracking-[var(--navigation-letter-spacing)] px-5 py-2 group ${
-    location.pathname === item.href
-      ? "text-app-secondary"
-      : "text-main-black"
-  }`}
->
-  {item.name}
-</RollingLink>
+                              to={item.href}
+                              className={`font-navigation font-[number:var(--navigation-font-weight)] text-main-black text-sm md:text-base tracking-[var(--navigation-letter-spacing)] px-5 py-2 group ${
+                                location.pathname === item.href
+                                  ? "text-app-secondary"
+                                  : "text-main-black"
+                              }`}
+                            >
+                              {item.name}
+                            </RollingLink>
                           </div>
                         </NavigationMenuLink>
                       </NavigationMenuItem>
@@ -78,10 +97,7 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
                 </NavigationMenuList>
               </NavigationMenu>
             </div>
-            {/* Hamburger for mobile/tablet */}
-            <div className="flex items-center ml-auto md:hidden">
-              <HamburgerMenu navigationItems={navigationItems} langDropdown={<LangDropdown i18n={i18n} />} />
-            </div>
+            {/* Hamburger removed from here - now in sticky header */}
             <div className="flex items-center ml-auto hidden md:flex">
               <LangDropdown i18n={i18n} />
             </div>
@@ -89,7 +105,9 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
         </header>
 
         {/* Main Content */}
-        <main className="w-full mt-12 md:mt-24 pb-64">{children}</main>
+        <main className="w-full mt-12 md:mt-24 pb-[220px] md:pb-[240px]">
+          {children}
+        </main>
 
         {/* Contact Section */}
         <section id="contact" className="w-full mb-32">
@@ -122,25 +140,53 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
         </section>
 
         {/* Footer */}
-        <footer className="w-full fixed bottom-0 left-0 right-0 bg-[#f3f3f3] py-4 md:py-[52px] px-4 sm:px-8 md:px-16 lg:px-40">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
-            <p className="font-navigation font-[number:var(--navigation-font-weight)] text-app-secondary text-sm md:text-[length:var(--navigation-font-size)] tracking-[var(--navigation-letter-spacing)] leading-[var(--navigation-line-height)] whitespace-nowrap [font-style:var(--navigation-font-style)]">
-              Juliana Amorim ⏤ 2025
-            </p>
+        <footer className="w-full fixed bottom-0 left-0 right-0 bg-[#f3f3f3] py-6 md:py-8 px-4 sm:px-8 md:px-16 lg:px-40">
+          <div className="max-w-[1440px] mx-auto">
+            {/* Separator */}
+            <div className="w-full mb-6 md:mb-8">
+              <img
+                src="/seperator.svg"
+                alt=""
+                aria-hidden="true"
+                className="w-full h-auto opacity-30"
+              />
+            </div>
+            
+            {/* Let's work together section */}
+            <div className="w-full flex flex-col md:flex-row justify-between items-center mb-6 md:mb-8">
+              <h2 className="text-xl md:text-2xl font-navigation text-main-black mb-2 md:mb-0">
+                Let's work together
+              </h2>
+              <a 
+                href="mailto:juamorim@me.com" 
+                className="text-app-secondary hover:underline font-navigation text-base md:text-lg flex items-center gap-2"
+              >
+                juamorim@me.com
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </a>
+            </div>
 
-            <div className="flex gap-4 md:gap-8">
-              {footerLinks.map((link) => (
-  <RollingLink
-  key={link.name}
-  href={link.href}
-  className="font-navigation font-[number:var(--navigation-font-weight)] text-main-black text-sm md:text-[length:var(--navigation-font-size)] tracking-[var(--navigation-letter-spacing)] leading-[var(--navigation-line-height)] whitespace-nowrap [font-style:var(--navigation-font-style)] focus:outline-none focus:ring-2 focus:ring-app-secondary focus:ring-offset-2 rounded-sm px-2 group"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label={`Visit my ${link.name} profile`}
->
-  {link.name}
-</RollingLink>
-))}
+            <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-0">
+              <p className="font-navigation font-[number:var(--navigation-font-weight)] text-app-secondary text-sm md:text-[length:var(--navigation-font-size)] tracking-[var(--navigation-letter-spacing)] leading-[var(--navigation-line-height)] whitespace-nowrap [font-style:var(--navigation-font-style)]">
+                © Juliana Amorim ⏤ 2025
+              </p>
+
+              <div className="flex items-center justify-center gap-10 md:gap-12 h-6">
+                {footerLinks.map((link) => (
+                  <RollingLink
+                    key={link.name}
+                    href={link.href}
+                    className="font-navigation font-[number:var(--navigation-font-weight)] text-main-black text-sm md:text-[length:var(--navigation-font-size)] tracking-[var(--navigation-letter-spacing)] leading-[var(--navigation-line-height)] whitespace-nowrap [font-style:var(--navigation-font-style)] focus:outline-none focus:ring-2 focus:ring-app-secondary focus:ring-offset-2 rounded-sm group"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Visit my ${link.name} profile`}
+                  >
+                    {link.name}
+                  </RollingLink>
+                ))}
+              </div>
             </div>
           </div>
         </footer>
