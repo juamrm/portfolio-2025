@@ -30,11 +30,10 @@ export const UnderConstructionPage = (): JSX.Element => {
 
       {/* Content */}
       <h1 className="font-dm-sans text-3xl md:text-4xl text-main-black mb-4">
-        Under Construction
+        {t("underConstruction.title")}
       </h1>
       <p className="font-dm-sans text-main-gray max-w-[500px] mb-8">
-        This project is currently being developed. Check back soon to see the
-        amazing things we're building!
+        {t("underConstruction.description")}
       </p>
 
       {/* Back Button */}
@@ -58,7 +57,9 @@ export const UnderConstructionPage = (): JSX.Element => {
             strokeLinejoin="round"
           />
         </svg>
-        <span className="font-dm-sans">Back to Projects</span>
+        <span className="font-dm-sans">
+          {t("underConstruction.backButton")}
+        </span>
       </Link>
     </div>
   );

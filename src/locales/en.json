@@ -6,8 +6,8 @@
     "contact": "Contact"
   },
   "hero": {
-    "greeting": "Hi I'm Juliana Amorim.",
-    "description": "Welcome to my portfolio website. I am a passionate developer and designer."
+    "greeting": "Hi, I'm Juliana Amorim",
+    "description": "Full-Stack Developer and UX/UI Designer crafting meaningful digital experiences through clean code and intuitive design."
   },
   "about": {
     "stack": "My stack",
@@ -55,18 +55,15 @@
     "items": {
       "webDesign": {
         "title": "Web Design",
-        "description": "Modern & Responsive Design",
-        "fullDescription": "Crafting visually stunning and responsive websites that seamlessly adapt to any device. Each project showcases a perfect blend of modern aesthetics and user-centric design principles, featuring custom animations, thoughtful typography, and engaging visual hierarchies that bring brands to life in the digital space."
+        "description": "Modern & Responsive Design"
       },
       "webDevelopment": {
         "title": "Web Development",
-        "description": "Full-Stack Applications",
-        "fullDescription": "Building sophisticated web applications with cutting-edge technologies. These projects demonstrate technical excellence through clean architecture, optimized performance, and seamless integration of complex features. From e-commerce platforms to custom CMS solutions, each application is built with scalability and maintainability in mind."
+        "description": "Full-Stack Applications"
       },
       "uiUxDesign": {
         "title": "UI/UX Design",
-        "description": "User Interface & Experience",
-        "fullDescription": "Creating intuitive and delightful user experiences through meticulous research and design thinking. These projects showcase comprehensive user journey mapping, interactive prototypes, and pixel-perfect UI designs. Each solution is crafted to solve real user problems while maintaining visual consistency and accessibility standards."
+        "description": "User Interface & Experience"
       }
     }
   },
@@ -91,5 +88,10 @@
       "title": "Let's work together",
       "description": "Get in touch and let's bring your ideas to life"
     }
+  },
+  "underConstruction": {
+    "title": "Under Construction",
+    "description": "This project is currently being developed. Check back soon to see the amazing things we're building!",
+    "backButton": "Back to Projects"
   }
 }

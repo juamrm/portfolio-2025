@@ -1,12 +1,13 @@
 {
   "navbar": {
-    "about": "Sobre mí",
+    "home": "Inicio",
+    "services": "Servicios",
     "projects": "Proyectos",
     "contact": "Contacto"
   },
   "hero": {
-    "greeting": "Hola, soy Juliana Amorim.",
-    "description": "Bienvenido a mi portafolio. Soy una desarrolladora y diseñadora apasionada."
+    "greeting": "Hola, soy Juliana Amorim",
+    "description": "Desarrolladora Full-Stack y Diseñadora UX/UI creando experiencias digitales significativas a través de código limpio y diseño intuitivo."
   },
   "about": {
     "stack": "Mi stack",
@@ -46,25 +47,51 @@
     }
   },
   "projects": {
+    "title": "Proyectos Seleccionados",
+    "introduction": "Explora mi portafolio que muestra una combinación de desarrollo web moderno, diseño intuitivo y experiencia técnica. Cada proyecto representa un desafío único en la creación de experiencias digitales fluidas que combinan estética con funcionalidad.",
     "backToProjects": "Volver a Proyectos",
     "toolsUsed": "Herramientas Utilizadas",
     "projectGallery": "Galería del Proyecto",
     "items": {
-      "creatureDesign": {
-        "title": "Diseño de Criaturas",
-        "description": "Modelado Orgánico, Texturizado",
-        "fullDescription": "Una serie de diseños de criaturas que exploran formas y texturas orgánicas. Cada criatura está cuidadosamente elaborada para equilibrar tanto el atractivo estético como la plausibilidad anatómica, empujando los límites entre la realidad y la imaginación."
+      "webDesign": {
+        "title": "Diseño Web",
+        "description": "Diseño Moderno y Responsivo"
       },
-      "characterDesign": {
-        "title": "Diseño de Personajes",
-        "description": "Modelado Orgánico, Texturizado",
-        "fullDescription": "Proyecto de diseño de personajes enfocado en crear personalidades únicas a través del modelado y texturizado detallado. Cada personaje cuenta su propia historia a través de características y expresiones cuidadosamente elaboradas."
+      "webDevelopment": {
+        "title": "Desarrollo Web",
+        "description": "Aplicaciones Full-Stack"
       },
-      "environmentDesign": {
-        "title": "Diseño de Entornos",
-        "description": "Modelado Orgánico, Texturizado",
-        "fullDescription": "Proyecto de diseño de entornos que muestra la creación de espacios inmersivos. Cada ambiente está diseñado para contar una historia a través de la iluminación atmosférica y el texturizado detallado."
+      "uiUxDesign": {
+        "title": "Diseño UI/UX",
+        "description": "Interfaz y Experiencia de Usuario"
       }
     }
+  },
+  "contact": {
+    "title": "Contacto",
+    "form": {
+      "name": {
+        "label": "Nombre",
+        "placeholder": "Tu nombre"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "tu@email.com"
+      },
+      "message": {
+        "label": "Mensaje",
+        "placeholder": "Cuéntame sobre tu proyecto..."
+      },
+      "submit": "Enviar Mensaje"
+    },
+    "cta": {
+      "title": "Trabajemos juntos",
+      "description": "Ponte en contacto y hagamos realidad tus ideas"
+    }
+  },
+  "underConstruction": {
+    "title": "En Construcción",
+    "description": "Este proyecto está actualmente en desarrollo. ¡Vuelve pronto para ver las cosas increíbles que estamos construyendo!",
+    "backButton": "Volver a Proyectos"
   }
 }
