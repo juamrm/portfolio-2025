@@ -1,6 +1,7 @@
-# Modern UI Project
+# Portfolio Project
 
-Welcome! This is my portfolio, built with the Shadcn UI library.
+Welcome! This is my portfolio 2025, built with the Shadcn UI library and i18next for multilanguage support.
+This portfolio is in a constant working in progress and showcase of my skills and projects as web developer and UXUI designer. You can navigate through the different sections to learn more about me and my work.
 
 ## Getting started
 
