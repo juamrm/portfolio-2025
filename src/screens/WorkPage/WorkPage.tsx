@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { projects } from "../../data/projects";
 
@@ -22,7 +21,9 @@ export const WorkPage = (): JSX.Element => {
                   <h3 className="font-heading-2 text-xl md:text-2xl text-main-black mb-2">
                     {project.title}
                   </h3>
-                  <p className="font-body text-main-gray">{project.description}</p>
+                  <p className="font-body text-main-gray">
+                    {project.description}
+                  </p>
                 </div>
                 <span className="font-body text-main-gray">{project.year}</span>
               </div>

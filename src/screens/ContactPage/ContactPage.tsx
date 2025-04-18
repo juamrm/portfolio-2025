@@ -1,5 +1,3 @@
-
-
 export const ContactPage = (): JSX.Element => {
   return (
     <div className="flex flex-col gap-16 md:gap-24">
@@ -13,12 +11,19 @@ export const ContactPage = (): JSX.Element => {
       {/* Contact Information */}
       <section className="flex flex-col gap-12">
         <div className="flex flex-col gap-2">
-          <h2 className="font-heading-2 text-2xl text-main-black mb-4">Get in touch</h2>
-          
+          <h2 className="font-heading-2 text-2xl text-main-black mb-4">
+            Get in touch
+          </h2>
+
           {/* Email */}
           <div className="flex items-center gap-4 mb-6">
-            <span className="font-heading-2 text-xl text-main-gray" aria-hidden="true">Email:</span>
-            <a 
+            <span
+              className="font-heading-2 text-xl text-main-gray"
+              aria-hidden="true"
+            >
+              Email:
+            </span>
+            <a
               href="mailto:juamorim@me.com"
               className="inline-flex items-center gap-4 group"
               aria-label="Email me at juamorim@me.com"
@@ -34,11 +39,16 @@ export const ContactPage = (): JSX.Element => {
               />
             </a>
           </div>
-          
+
           {/* WhatsApp */}
           <div className="flex items-center gap-4 mb-6">
-            <span className="font-heading-2 text-xl text-main-gray" aria-hidden="true">WhatsApp:</span>
-            <a 
+            <span
+              className="font-heading-2 text-xl text-main-gray"
+              aria-hidden="true"
+            >
+              WhatsApp:
+            </span>
+            <a
               href="https://wa.me/34635800212"
               target="_blank"
               rel="noopener noreferrer"
@@ -59,20 +69,22 @@ export const ContactPage = (): JSX.Element => {
         </div>
 
         <div className="flex flex-col gap-4">
-          <h2 className="font-heading-2 text-2xl text-main-black mb-4">Connect</h2>
+          <h2 className="font-heading-2 text-2xl text-main-black mb-4">
+            Connect
+          </h2>
           <div className="flex gap-8">
-            <a 
-              href="https://linkedin.com"
-              target="_blank" 
+            <a
+              href="https://www.linkedin.com/in/julianaamrm/"
+              target="_blank"
               rel="noopener noreferrer"
               className="font-body text-main-black hover:text-app-secondary transition-colors focus:outline-none focus:ring-2 focus:ring-app-secondary focus:ring-offset-2 rounded-sm px-2"
               aria-label="Visit my LinkedIn profile"
             >
               LinkedIn
             </a>
-            <a 
-              href="https://github.com"
-              target="_blank" 
+            <a
+              href="https://github.com/juamrm"
+              target="_blank"
               rel="noopener noreferrer"
               className="font-body text-main-black hover:text-app-secondary transition-colors focus:outline-none focus:ring-2 focus:ring-app-secondary focus:ring-offset-2 rounded-sm px-2"
               aria-label="Visit my GitHub profile"

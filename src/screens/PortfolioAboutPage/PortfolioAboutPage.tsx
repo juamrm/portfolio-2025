@@ -30,9 +30,11 @@ export const PortfolioAboutPage = (): JSX.Element => {
           {/* Left column with heading */}
           <div className="md:col-span-6 flex flex-col justify-center h-full">
             <h1 className="font-heading-1 font-[number:var(--heading-1-font-weight)] text-main-black text-4xl md:text-5xl tracking-tight leading-tight mb-6">
-              {t('hero.greeting')}
+              {t("hero.greeting")}
             </h1>
-            <p className="mt-4 text-lg text-gray-600">{t('hero.description')}</p>
+            <p className="mt-4 text-lg text-gray-600">
+              {t("hero.description")}
+            </p>
           </div>
 
           {/* Right column with image */}
