@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
   NavigationMenu,
@@ -17,6 +17,7 @@ interface LayoutProps {
 
 export const Layout = ({ children }: LayoutProps): JSX.Element => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const { i18n } = useTranslation();
   const navigationItems = [
@@ -49,10 +50,17 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
             <div className="flex-1 flex justify-center hidden md:flex">
               <NavigationMenu>
                 <NavigationMenuList className="flex flex-row items-center gap-6 md:gap-8">
-                  {navigationItems.map((item) => (
-                    <NavigationMenuItem key={item.name}>
-                      <NavigationMenuLink asChild>
-                        <RollingLink
+                  {navigationItems.map((item) => {
+                    const handleClick = (e: React.MouseEvent) => {
+                      e.preventDefault();
+                      navigate(item.href);
+                    };
+                    
+                    return (
+                      <NavigationMenuItem key={item.name}>
+                        <NavigationMenuLink asChild>
+                          <div onClick={handleClick} className="cursor-pointer">
+                            <RollingLink
   to={item.href}
   className={`font-navigation font-[number:var(--navigation-font-weight)] text-main-black text-base md:text-lg tracking-[var(--navigation-letter-spacing)] px-5 py-2 group ${
     location.pathname === item.href
@@ -62,9 +70,11 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
 >
   {item.name}
 </RollingLink>
-                      </NavigationMenuLink>
-                    </NavigationMenuItem>
-                  ))}
+                          </div>
+                        </NavigationMenuLink>
+                      </NavigationMenuItem>
+                    );
+                  })}
                 </NavigationMenuList>
               </NavigationMenu>
             </div>
