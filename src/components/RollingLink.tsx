@@ -23,33 +23,35 @@ const RollingLink: React.FC<RollingLinkProps> = ({
 
   return (
     <span
-      style={{ paddingLeft: 40, paddingRight: 40 }}
-      className={`group relative inline-block overflow-hidden align-middle h-6 min-w-fit ${className}`}
+      style={{ paddingLeft: 40, paddingRight: 40, display: "inline-block", width: "fit-content" }}
+      className={`group relative overflow-hidden align-middle h-6 ${className}`}
     >
-      <span
-        className="absolute left-0 top-0 w-full transition-transform duration-700 ease-[cubic-bezier(.22,1,.36,1)] group-hover:-translate-y-6"
-        style={{ height: HEIGHT * 2, display: "block" }}
-      >
+      <span style={{ display: "inline-block", width: "fit-content" }}>
         <span
-          className="block h-6 text-main-black whitespace-nowrap"
-          style={{ lineHeight: "24px" }}
+          className="absolute left-0 top-0 w-full transition-transform duration-700 ease-[cubic-bezier(.22,1,.36,1)] group-hover:-translate-y-6"
+          style={{ height: HEIGHT * 2, display: "block" }}
         >
-          <Wrapper {...wrapperProps} className="w-full h-full">
-            {children}
-          </Wrapper>
-        </span>
-        <span
-          className="block h-6 text-app-secondary whitespace-nowrap"
-          style={{ lineHeight: "24px" }}
-        >
-          <Wrapper
-            {...wrapperProps}
-            className="w-full h-full pointer-events-none"
-            tabIndex={-1}
-            aria-hidden
+          <span
+            className="block h-6 text-main-black whitespace-nowrap"
+            style={{ lineHeight: "24px" }}
           >
-            {children}
-          </Wrapper>
+            <Wrapper {...wrapperProps} className="w-full h-full">
+              {children}
+            </Wrapper>
+          </span>
+          <span
+            className="block h-6 text-app-secondary whitespace-nowrap"
+            style={{ lineHeight: "24px" }}
+          >
+            <Wrapper
+              {...wrapperProps}
+              className="w-full h-full pointer-events-none"
+              tabIndex={-1}
+              aria-hidden
+            >
+              {children}
+            </Wrapper>
+          </span>
         </span>
       </span>
     </span>

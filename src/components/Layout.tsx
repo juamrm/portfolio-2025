@@ -9,6 +9,7 @@ import {
 } from "./ui/navigation-menu";
 import LangDropdown from "./LangDropdown";
 import RollingLink from "./RollingLink";
+import HamburgerMenu from "./HamburgerMenu";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -44,7 +45,8 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
                 src="/site-logo.svg"
               />
             </Link>
-            <div className="flex-1 flex justify-center">
+            {/* Desktop Nav */}
+            <div className="flex-1 flex justify-center hidden md:flex">
               <NavigationMenu>
                 <NavigationMenuList className="flex flex-row items-center gap-6 md:gap-8">
                   {navigationItems.map((item) => (
@@ -66,7 +68,11 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
                 </NavigationMenuList>
               </NavigationMenu>
             </div>
-            <div className="flex items-center ml-auto">
+            {/* Hamburger for mobile/tablet */}
+            <div className="flex items-center ml-auto md:hidden">
+              <HamburgerMenu navigationItems={navigationItems} langDropdown={<LangDropdown i18n={i18n} />} />
+            </div>
+            <div className="flex items-center ml-auto hidden md:flex">
               <LangDropdown i18n={i18n} />
             </div>
           </div>
