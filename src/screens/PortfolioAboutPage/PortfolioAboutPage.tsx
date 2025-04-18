@@ -1,19 +1,21 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Separator } from "../../components/ui/separator";
-import profileSVG from "../../assets/Foto Juliana 1.svg";
+import profileSVG from "../../assets/Foto Juliana 1.svg"; // Ensure SVG module declaration exists
 
 export const PortfolioAboutPage = (): JSX.Element => {
+  const { t } = useTranslation();
   // Skills and software data
   const softwareSkills = [
     {
-      title: "My stack",
+      title: t("about.stack"),
       skills: [
         "Pixologic ZBrush, Autodesk Maya, The Foundry Mari, Arnold Renderer, Blender, Forger",
         "Adobe CC, Figma, Ableton",
       ],
     },
     {
-      title: "Main Skills",
+      title: t("about.mainSkills"),
       skills: [
         "Organic and Polygonal Modeling, UV Layout, Texturing, Retopology, Ilustration, Sound Design",
       ],
@@ -28,12 +30,9 @@ export const PortfolioAboutPage = (): JSX.Element => {
           {/* Left column with heading */}
           <div className="md:col-span-6 flex flex-col justify-center h-full">
             <h1 className="font-heading-1 font-[number:var(--heading-1-font-weight)] text-main-black text-4xl md:text-5xl tracking-tight leading-tight mb-6">
-              Hi I&apos;m Juliana Amorim.
-              <br />
-              <span className="text-app-secondary">
-                Web and Product Designer.
-              </span>
+              {t('hero.greeting')}
             </h1>
+            <p className="mt-4 text-lg text-gray-600">{t('hero.description')}</p>
           </div>
 
           {/* Right column with image */}

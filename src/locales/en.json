@@ -1,0 +1,15 @@
+{
+  "navbar": {
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi I'm Juliana Amorim.",
+    "description": "Welcome to my portfolio website. I am a passionate developer and designer."
+  },
+  "about": {
+    "stack": "My stack",
+    "mainSkills": "Main Skills"
+  }
+}

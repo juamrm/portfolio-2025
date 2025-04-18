@@ -1,11 +1,13 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
 } from "./ui/navigation-menu";
+import LangDropdown from "./LangDropdown";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -14,21 +16,19 @@ interface LayoutProps {
 export const Layout = ({ children }: LayoutProps): JSX.Element => {
   const location = useLocation();
 
+  const { i18n } = useTranslation();
   const navigationItems = [
-    { name: "About", href: "/" },
-    { name: "Work", href: "/work" },
-    { name: "Contact", href: "/contact" },
+    { name: i18n.t("navbar.about"), href: "/" },
+    { name: i18n.t("navbar.projects"), href: "/work" },
+    { name: i18n.t("navbar.contact"), href: "/contact" },
   ];
+
 
   const footerLinks = [
     { name: "Linkedin", href: "#" },
     { name: "Github", href: "#" },
   ];
 
-  const scrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <div className="bg-[#f3f3f3] flex flex-row justify-center w-full">
@@ -45,27 +45,25 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
             </Link>
 
             <NavigationMenu>
-              <NavigationMenuList className="flex gap-4 md:gap-8">
+              <NavigationMenuList className="flex flex-row items-center gap-2">
                 {navigationItems.map((item) => (
                   <NavigationMenuItem key={item.name}>
-                    <NavigationMenuLink
-                      asChild
-                      className={`nav-underline-animate font-navigation font-[number:var(--navigation-font-weight)] text-sm md:text-[length:var(--navigation-font-size)] tracking-[var(--navigation-letter-spacing)] leading-[var(--navigation-line-height)] [font-style:var(--navigation-font-style)] ${
-                        location.pathname === item.href
-                          ? "text-app-secondary"
-                          : "text-main-black"
-                      }`}
-                    >
-                      {item.href.startsWith('#') ? (
-                        <a href={item.href} onClick={scrollToContact}>
-                          {item.name}
-                        </a>
-                      ) : (
-                        <Link to={item.href}>{item.name}</Link>
-                      )}
+                    <NavigationMenuLink asChild>
+                      <Link
+                        to={item.href}
+                        className={`nav-underline-animate font-navigation font-[number:var(--navigation-font-weight)] text-main-black text-sm md:text-[length:var(--navigation-font-size)] tracking-[var(--navigation-letter-spacing)] px-4 py-2 ${
+                          location.pathname === item.href
+                            ? "text-app-secondary"
+                            : "text-main-black"
+                        }`}
+                      >
+                        {item.name}
+                      </Link>
                     </NavigationMenuLink>
                   </NavigationMenuItem>
                 ))}
+                {/* Language Switcher Flags */}
+                <LangDropdown i18n={i18n} />
               </NavigationMenuList>
             </NavigationMenu>
           </div>
@@ -77,7 +75,7 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
         {/* Contact Section */}
         <section id="contact" className="w-full mb-32">
           <div className="max-w-[800px] mx-auto text-center">
-            <Link 
+            <Link
               to="/contact"
               className="inline-block focus:outline-none focus:ring-2 focus:ring-app-secondary focus:ring-offset-2 rounded-sm"
               aria-label="Contact page"
@@ -86,7 +84,7 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
                 Let's work together
               </h2>
             </Link>
-            <a 
+            <a
               href="mailto:juamorim@me.com"
               className="inline-flex items-center gap-4 group focus:outline-none focus:ring-2 focus:ring-app-secondary focus:ring-offset-2 rounded-sm px-2"
               aria-label="Email me at juamorim@me.com"

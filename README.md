@@ -1,6 +1,6 @@
 # Modern UI Project
 
-Welcome! This is a modern React project using the Shadcn UI library.
+Welcome! This is my portfolio, built with the Shadcn UI library.
 
 ## Getting started
 
@@ -22,7 +22,6 @@ npm run dev
 
 After a few seconds, your project should be accessible at the address
 [http://localhost:5173/](http://localhost:5173/)
-
 
 If you are satisfied with the result, you can finally build the project for release with:
 

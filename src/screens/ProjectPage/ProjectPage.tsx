@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { projects } from "../../data/projects";
 import { Separator } from "../../components/ui/separator";
 
-export const ProjectPage = (): JSX.Element => {
+export const ProjectPage = (): JSX.Element | null => {
   const { projectId } = useParams();
   const navigate = useNavigate();
   const project = projects.find((p) => p.id === projectId);
