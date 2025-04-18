@@ -16,10 +16,11 @@ const RollingLink: React.FC<RollingLinkProps> = ({
   href,
   to,
   className = "",
+  onClick,
   ...rest
 }) => {
   const Wrapper: any = to ? Link : "a";
-  const wrapperProps = to ? { to } : { href, ...rest };
+  const wrapperProps = to ? { to, onClick } : { href, onClick, ...rest };
 
   return (
     <span
@@ -48,6 +49,7 @@ const RollingLink: React.FC<RollingLinkProps> = ({
               className="w-full h-full pointer-events-none"
               tabIndex={-1}
               aria-hidden
+              onClick={null} /* Prevent click on hidden element */
             >
               {children}
             </Wrapper>

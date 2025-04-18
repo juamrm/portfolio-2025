@@ -1,16 +1,20 @@
 import React, { useState, useRef, useEffect } from "react";
 import RollingLink from "./RollingLink";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 interface HamburgerMenuProps {
   navigationItems: { name: string; href: string }[];
   langDropdown?: React.ReactNode;
 }
 
-const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ navigationItems, langDropdown }) => {
+const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
+  navigationItems,
+  langDropdown,
+}) => {
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -39,13 +43,19 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ navigationItems, langDrop
       >
         <span className="block w-7 h-7 relative">
           <span
-            className={`absolute left-0 top-2 w-7 h-0.5 bg-main-black rounded transition-transform duration-300 ${open ? "rotate-45 top-3" : ""}`}
+            className={`absolute left-0 top-2 w-7 h-0.5 bg-main-black rounded transition-transform duration-300 ${
+              open ? "rotate-45 top-3" : ""
+            }`}
           />
           <span
-            className={`absolute left-0 top-4 w-7 h-0.5 bg-main-black rounded transition-all duration-300 ${open ? "opacity-0" : ""}`}
+            className={`absolute left-0 top-4 w-7 h-0.5 bg-main-black rounded transition-all duration-300 ${
+              open ? "opacity-0" : ""
+            }`}
           />
           <span
-            className={`absolute left-0 top-6 w-7 h-0.5 bg-main-black rounded transition-transform duration-300 ${open ? "-rotate-45 top-3" : ""}`}
+            className={`absolute left-0 top-6 w-7 h-0.5 bg-main-black rounded transition-transform duration-300 ${
+              open ? "-rotate-45 top-3" : ""
+            }`}
           />
         </span>
       </button>
@@ -61,16 +71,33 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ navigationItems, langDrop
           >
             &times;
           </button>
-          {navigationItems.map((item) => (
-            <RollingLink
-              key={item.name}
-              to={item.href}
-              className="text-base font-navigation text-main-black"
-              style={{ paddingLeft: 56, paddingRight: 64 }}
-            >
-              {item.name}
-            </RollingLink>
-          ))}
+          {navigationItems.map((item) => {
+            const handleClick = (e: React.MouseEvent) => {
+              e.preventDefault(); // Prevent default link behavior
+              setOpen(false); // Close menu
+
+              // Navigate programmatically after a short delay
+              setTimeout(() => {
+                navigate(item.href);
+              }, 100);
+            };
+
+            return (
+              <div
+                key={item.name}
+                className="cursor-pointer"
+                onClick={handleClick}
+              >
+                <RollingLink
+                  to={item.href}
+                  className="text-base font-navigation text-main-black"
+                  style={{ paddingLeft: 56, paddingRight: 64 }}
+                >
+                  {item.name}
+                </RollingLink>
+              </div>
+            );
+          })}
           {langDropdown && (
             <div className="mt-8 flex flex-row justify-center items-center w-full gap-4">
               {langDropdown}
