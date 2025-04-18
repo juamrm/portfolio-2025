@@ -46,13 +46,13 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
             </Link>
             <div className="flex-1 flex justify-center">
               <NavigationMenu>
-                <NavigationMenuList className="flex flex-row items-center gap-2">
+                <NavigationMenuList className="flex flex-row items-center gap-6 md:gap-8">
                   {navigationItems.map((item) => (
                     <NavigationMenuItem key={item.name}>
                       <NavigationMenuLink asChild>
                         <RollingLink
   to={item.href}
-  className={`font-navigation font-[number:var(--navigation-font-weight)] text-main-black text-sm md:text-[length:var(--navigation-font-size)] tracking-[var(--navigation-letter-spacing)] px-4 py-2 group ${
+  className={`font-navigation font-[number:var(--navigation-font-weight)] text-main-black text-sm md:text-[length:var(--navigation-font-size)] tracking-[var(--navigation-letter-spacing)] px-5 py-2 group ${
     location.pathname === item.href
       ? "text-app-secondary"
       : "text-main-black"
