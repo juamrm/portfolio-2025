@@ -1,12 +1,12 @@
 /** @type {import('tailwindcss').Config} */
-import forms from '@tailwindcss/forms'
-import typography from '@tailwindcss/typography'
+import forms from '@tailwindcss/forms';
+import typography from '@tailwindcss/typography';
 
 export default {
   content: [
     "./src/**/*.{html,js,ts,jsx,tsx}",
     "app/**/*.{ts,tsx}",
-    "components/**/*.{ts,tsx}",
+    "components/**/*.{ts,tsx}"
   ],
   theme: {
     extend: {
@@ -86,5 +86,5 @@ export default {
     container: { center: true, padding: "2rem", screens: { "2xl": "1400px" } },
   },
   plugins: [forms, typography],
-  darkMode: ["class"],
+  darkMode: ["class"]
 };
