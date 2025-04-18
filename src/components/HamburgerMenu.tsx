@@ -48,9 +48,27 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
         onClick={() => setOpen((v) => !v)}
       >
         {open ? (
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 6L6 18" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M6 6L18 18" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18 6L6 18"
+              stroke="#000000"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M6 6L18 18"
+              stroke="#000000"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
         ) : (
           <span className="block w-6 h-6 relative">
@@ -74,8 +92,6 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
             transition: "transform 0.3s ease, opacity 0.3s ease",
           }}
         >
-          {/* Removed X button from inside menu */}
-
           <div className="flex flex-col gap-5">
             {navigationItems.map((item) => {
               const handleClick = (e: React.MouseEvent) => {

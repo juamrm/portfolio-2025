@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const footerLinks = [
   {
@@ -41,33 +42,56 @@ const footerLinks = [
   },
 ];
 
-const Footer: React.FC = () => (
-  <footer className="w-full py-8 md:py-10 px-4 sm:px-8 md:px-16 lg:px-40 border-t border-gray-200">
-    <div className="max-w-[1440px] mx-auto">
-      <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
-        {/* Copyright */}
-        <p className="font-heading-2 text-main-black text-base tracking-[var(--navigation-letter-spacing)] leading-[var(--navigation-line-height)]">
-          © Juliana Amorim ⏤ 2025
-        </p>
+const Footer: React.FC = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
 
-        {/* Social Links */}
-        <div className="flex items-center justify-center gap-8">
-          {footerLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Visit my ${link.name} profile`}
-              className="text-main-black hover:text-app-secondary transition-colors duration-200"
-            >
-              {link.icon}
-            </a>
-          ))}
+  const handleCopyrightClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (location.pathname === "/") {
+      const heroSection = document.querySelector("#hero");
+      heroSection?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        const heroSection = document.querySelector("#hero");
+        heroSection?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  };
+
+  return (
+    <footer className="w-full py-8 md:py-10 px-4 sm:px-8 md:px-16 lg:px-40 border-t border-gray-200">
+      <div className="max-w-[1440px] mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
+          {/* Copyright */}
+          <a
+            href="/"
+            onClick={handleCopyrightClick}
+            className="font-heading-2 text-main-black text-base tracking-[var(--navigation-letter-spacing)] leading-[var(--navigation-line-height)] hover:text-app-secondary transition-colors duration-200"
+          >
+            © Juliana Amorim ⏤ 2025
+          </a>
+
+          {/* Social Links */}
+          <div className="flex items-center justify-center gap-8">
+            {footerLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Visit my ${link.name} profile`}
+                className="text-main-black hover:text-app-secondary transition-colors duration-200"
+              >
+                {link.icon}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
-);
+    </footer>
+  );
+};
 
 export default Footer;

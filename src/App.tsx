@@ -1,23 +1,21 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Layout } from './components/Layout';
-import { WorkPage } from './screens/WorkPage/WorkPage';
-import { PortfolioAboutPage } from './screens/PortfolioAboutPage/PortfolioAboutPage';
-import { ProjectPage } from './screens/ProjectPage/ProjectPage';
-import { ContactPage } from './screens/ContactPage/ContactPage';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Layout } from "./components/Layout";
+import { HomePage } from "./screens/HomePage/HomePage";
+import { WorkPage } from "./screens/WorkPage/WorkPage";
+import { UnderConstructionPage } from "./screens/UnderConstructionPage/UnderConstructionPage";
 
 function App() {
   return (
     <Router>
       <Layout>
         <Routes>
-          <Route path="/" element={<PortfolioAboutPage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/work" element={<WorkPage />} />
-          <Route path="/project/:projectId" element={<ProjectPage />} />
-          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/project/:id" element={<UnderConstructionPage />} />
         </Routes>
       </Layout>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;

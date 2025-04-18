@@ -1,6 +1,7 @@
 {
   "navbar": {
-    "about": "About",
+    "home": "Home",
+    "services": "Services",
     "projects": "Projects",
     "contact": "Contact"
   },
@@ -46,25 +47,49 @@
     }
   },
   "projects": {
+    "title": "Selected Projects",
+    "introduction": "Explore my portfolio showcasing a blend of modern web development, intuitive design, and technical expertise. Each project represents a unique challenge in creating seamless digital experiences that combine aesthetics with functionality.",
     "backToProjects": "Back to Projects",
     "toolsUsed": "Tools Used",
     "projectGallery": "Project Gallery",
     "items": {
-      "creatureDesign": {
-        "title": "Creature Design",
-        "description": "Organic Modeling, Texturing",
-        "fullDescription": "A series of creature designs exploring organic forms and textures. Each creature is carefully crafted to balance both aesthetic appeal and anatomical plausibility, pushing the boundaries between reality and imagination."
+      "webDesign": {
+        "title": "Web Design",
+        "description": "Modern & Responsive Design",
+        "fullDescription": "Crafting visually stunning and responsive websites that seamlessly adapt to any device. Each project showcases a perfect blend of modern aesthetics and user-centric design principles, featuring custom animations, thoughtful typography, and engaging visual hierarchies that bring brands to life in the digital space."
       },
-      "characterDesign": {
-        "title": "Character Design",
-        "description": "Organic Modeling, Texturing",
-        "fullDescription": "Character design project focusing on creating unique personalities through detailed modeling and texturing. Each character tells its own story through carefully crafted features and expressions."
+      "webDevelopment": {
+        "title": "Web Development",
+        "description": "Full-Stack Applications",
+        "fullDescription": "Building sophisticated web applications with cutting-edge technologies. These projects demonstrate technical excellence through clean architecture, optimized performance, and seamless integration of complex features. From e-commerce platforms to custom CMS solutions, each application is built with scalability and maintainability in mind."
       },
-      "environmentDesign": {
-        "title": "Environment Design",
-        "description": "Organic Modeling, Texturing",
-        "fullDescription": "Environmental design project showcasing the creation of immersive spaces. Each environment is designed to tell a story through atmospheric lighting and detailed texturing."
+      "uiUxDesign": {
+        "title": "UI/UX Design",
+        "description": "User Interface & Experience",
+        "fullDescription": "Creating intuitive and delightful user experiences through meticulous research and design thinking. These projects showcase comprehensive user journey mapping, interactive prototypes, and pixel-perfect UI designs. Each solution is crafted to solve real user problems while maintaining visual consistency and accessibility standards."
       }
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "form": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Your name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "your@email.com"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Tell me about your project..."
+      },
+      "submit": "Send Message"
+    },
+    "cta": {
+      "title": "Let's work together",
+      "description": "Get in touch and let's bring your ideas to life"
     }
   }
 }
