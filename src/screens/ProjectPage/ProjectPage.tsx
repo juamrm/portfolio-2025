@@ -1,10 +1,12 @@
 import { useParams, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { projects } from "../../data/projects";
 import { Separator } from "../../components/ui/separator";
 
 export const ProjectPage = (): JSX.Element | null => {
   const { projectId } = useParams();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const project = projects.find((p) => p.id === projectId);
 
   if (!project) {
@@ -19,12 +21,12 @@ export const ProjectPage = (): JSX.Element | null => {
         <div className="flex flex-col gap-8">
           <div className="flex flex-col md:flex-row justify-between items-start gap-4">
             <h1 className="font-heading-1 text-4xl md:text-[length:var(--heading-1-font-size)] text-main-black tracking-[var(--heading-1-letter-spacing)] leading-[var(--heading-1-line-height)]">
-              {project.title}
+              {t(`projects.items.${project.translationKey}.title`)}
             </h1>
             <span className="font-body text-main-gray">{project.year}</span>
           </div>
           <p className="font-heading-2 text-xl md:text-[length:var(--heading-2-font-size)] text-main-gray tracking-[var(--heading-2-letter-spacing)] leading-[var(--heading-2-line-height)] max-w-[800px]">
-            {project.fullDescription}
+            {t(`projects.items.${project.translationKey}.fullDescription`)}
           </p>
         </div>
       </section>
@@ -33,7 +35,7 @@ export const ProjectPage = (): JSX.Element | null => {
       <section>
         <img
           src={project.image}
-          alt={project.title}
+          alt={t(`projects.items.${project.translationKey}.title`)}
           className="w-full aspect-[16/9] object-cover rounded-lg"
         />
       </section>
@@ -41,7 +43,7 @@ export const ProjectPage = (): JSX.Element | null => {
       {/* Tools Section */}
       <section>
         <h2 className="font-heading-2 text-2xl text-main-black mb-6">
-          Tools Used
+          {t("projects.toolsUsed")}
         </h2>
         <div className="flex flex-wrap gap-4">
           {project.tools.map((tool) => (
@@ -58,14 +60,16 @@ export const ProjectPage = (): JSX.Element | null => {
       {/* Gallery */}
       <section>
         <h2 className="font-heading-2 text-2xl text-main-black mb-8">
-          Project Gallery
+          {t("projects.projectGallery")}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {project.gallery.map((image, index) => (
             <img
               key={index}
               src={image}
-              alt={`${project.title} detail ${index + 1}`}
+              alt={`${t(
+                `projects.items.${project.translationKey}.title`
+              )} detail ${index + 1}`}
               className="w-full aspect-[4/3] object-cover rounded-lg"
             />
           ))}
@@ -80,7 +84,7 @@ export const ProjectPage = (): JSX.Element | null => {
           className="flex items-center gap-4 group"
         >
           <span className="font-heading-2 text-xl text-main-black group-hover:text-app-secondary transition-colors">
-            Back to Projects
+            {t("projects.backToProjects")}
           </span>
           <img
             className="w-6 h-[21px] rotate-180 group-hover:translate-x-[-4px] transition-transform"

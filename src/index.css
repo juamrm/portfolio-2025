@@ -69,11 +69,11 @@
   --body-line-height: 21.9px;
   --body-font-style: normal;
 
-  --navigation-font-family: "Inter", Helvetica;
+  --navigation-font-family: "DM Sans", Helvetica;
   --navigation-font-weight: 500;
-  --navigation-font-size: 14px;
-  --navigation-letter-spacing: -0.42px;
-  --navigation-line-height: 17.1px;
+  --navigation-font-size: 16px;
+  --navigation-letter-spacing: -0.48px;
+  --navigation-line-height: 24px;
   --navigation-font-style: normal;
 }
 

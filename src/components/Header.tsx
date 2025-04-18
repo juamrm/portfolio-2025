@@ -90,7 +90,7 @@ const Header: React.FC = () => {
                           <div onClick={handleClick} className="cursor-pointer">
                             <RollingLink
                               to={item.href}
-                              className={`font-navigation font-[number:var(--navigation-font-weight)] text-main-black text-base tracking-[var(--navigation-letter-spacing)] group ${
+                              className={`font-heading-2 text-base tracking-[var(--navigation-letter-spacing)] leading-[var(--navigation-line-height)] ${
                                 location.pathname === item.href
                                   ? "text-app-secondary"
                                   : "text-main-black"

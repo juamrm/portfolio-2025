@@ -10,6 +10,61 @@
   },
   "about": {
     "stack": "Mi stack",
-    "mainSkills": "Principales habilidades"
+    "mainSkills": "Principales habilidades",
+    "title": "Sobre mí",
+    "introduction": "Soy Juliana Amorim, Desarrolladora Web Full-Stack y Diseñadora UX/UI dedicada a crear experiencias digitales intuitivas e impactantes.",
+    "education": {
+      "factoria": {
+        "title": "Factoría F5",
+        "description": "Una escuela digital inclusiva en España que ofrece formación intensiva y de alto impacto en desarrollo web y móvil, con el objetivo de proporcionar acceso a oportunidades laborales de alta demanda."
+      },
+      "tramontana": {
+        "title": "Instituto Tramontana",
+        "description": "Una escuela de negocios con un enfoque humanístico y multidisciplinario, centrada en elevar a profesionales que crean productos y servicios."
+      },
+      "nuclio": {
+        "title": "Nuclio Digital School",
+        "description": "Una institución líder en formación digital en España, que ofrece programas de Máster en áreas como Diseño UX/UI y Desarrollo Full Stack, enfatizando el aprendizaje práctico y aplicado."
+      }
+    }
+  },
+  "services": {
+    "title": "Servicios",
+    "items": {
+      "webDesign": {
+        "title": "Diseño Web",
+        "description": "Creación de sitios web atractivos y responsivos que capturan la esencia de tu marca y conectan con tu audiencia."
+      },
+      "uiUxDesign": {
+        "title": "Diseño UI/UX",
+        "description": "Mejora de la experiencia de usuario con diseños de interfaz intuitivos y estéticamente agradables para aplicaciones web y móviles."
+      },
+      "webDevelopment": {
+        "title": "Desarrollo Web",
+        "description": "Construcción de sitios web robustos, escalables y de alto rendimiento utilizando las últimas tecnologías para garantizar una experiencia de usuario perfecta."
+      }
+    }
+  },
+  "projects": {
+    "backToProjects": "Volver a Proyectos",
+    "toolsUsed": "Herramientas Utilizadas",
+    "projectGallery": "Galería del Proyecto",
+    "items": {
+      "creatureDesign": {
+        "title": "Diseño de Criaturas",
+        "description": "Modelado Orgánico, Texturizado",
+        "fullDescription": "Una serie de diseños de criaturas que exploran formas y texturas orgánicas. Cada criatura está cuidadosamente elaborada para equilibrar tanto el atractivo estético como la plausibilidad anatómica, empujando los límites entre la realidad y la imaginación."
+      },
+      "characterDesign": {
+        "title": "Diseño de Personajes",
+        "description": "Modelado Orgánico, Texturizado",
+        "fullDescription": "Proyecto de diseño de personajes enfocado en crear personalidades únicas a través del modelado y texturizado detallado. Cada personaje cuenta su propia historia a través de características y expresiones cuidadosamente elaboradas."
+      },
+      "environmentDesign": {
+        "title": "Diseño de Entornos",
+        "description": "Modelado Orgánico, Texturizado",
+        "fullDescription": "Proyecto de diseño de entornos que muestra la creación de espacios inmersivos. Cada ambiente está diseñado para contar una historia a través de la iluminación atmosférica y el texturizado detallado."
+      }
+    }
   }
 }
