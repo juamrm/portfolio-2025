@@ -52,7 +52,7 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
                       <NavigationMenuLink asChild>
                         <RollingLink
   to={item.href}
-  className={`font-navigation font-[number:var(--navigation-font-weight)] text-main-black text-sm md:text-[length:var(--navigation-font-size)] tracking-[var(--navigation-letter-spacing)] px-5 py-2 group ${
+  className={`font-navigation font-[number:var(--navigation-font-weight)] text-main-black text-base md:text-lg tracking-[var(--navigation-letter-spacing)] px-5 py-2 group ${
     location.pathname === item.href
       ? "text-app-secondary"
       : "text-main-black"

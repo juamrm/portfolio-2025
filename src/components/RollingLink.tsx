@@ -23,7 +23,8 @@ const RollingLink: React.FC<RollingLinkProps> = ({
 
   return (
     <span
-      className={`group relative inline-block overflow-hidden align-middle h-6 min-w-fit px-10 ${className}`}
+      style={{ paddingLeft: 40, paddingRight: 40 }}
+      className={`group relative inline-block overflow-hidden align-middle h-6 min-w-fit ${className}`}
     >
       <span
         className="absolute left-0 top-0 w-full transition-transform duration-700 ease-[cubic-bezier(.22,1,.36,1)] group-hover:-translate-y-6"
