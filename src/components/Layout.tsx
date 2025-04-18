@@ -8,6 +8,7 @@ import {
   NavigationMenuList,
 } from "./ui/navigation-menu";
 import LangDropdown from "./LangDropdown";
+import RollingLink from "./RollingLink";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -35,7 +36,7 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
       <div className="bg-[#f3f3f3] w-full max-w-[1440px] relative min-h-screen px-4 sm:px-8 md:px-16 lg:px-40">
         {/* Navigation */}
         <header className="w-full pt-16 md:pt-[120px]">
-          <div className="flex flex-col md:flex-row justify-between items-center w-full gap-6 md:gap-0">
+          <div className="flex flex-row items-center w-full gap-6 md:gap-0">
             <Link to="/" aria-label="Home page">
               <img
                 className="w-[67px] h-[23px]"
@@ -43,29 +44,31 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
                 src="/site-logo.svg"
               />
             </Link>
-
-            <NavigationMenu>
-              <NavigationMenuList className="flex flex-row items-center gap-2">
-                {navigationItems.map((item) => (
-                  <NavigationMenuItem key={item.name}>
-                    <NavigationMenuLink asChild>
-                      <Link
-                        to={item.href}
-                        className={`nav-underline-animate font-navigation font-[number:var(--navigation-font-weight)] text-main-black text-sm md:text-[length:var(--navigation-font-size)] tracking-[var(--navigation-letter-spacing)] px-4 py-2 ${
-                          location.pathname === item.href
-                            ? "text-app-secondary"
-                            : "text-main-black"
-                        }`}
-                      >
-                        {item.name}
-                      </Link>
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-                ))}
-                {/* Language Switcher Flags */}
-                <LangDropdown i18n={i18n} />
-              </NavigationMenuList>
-            </NavigationMenu>
+            <div className="flex-1 flex justify-center">
+              <NavigationMenu>
+                <NavigationMenuList className="flex flex-row items-center gap-2">
+                  {navigationItems.map((item) => (
+                    <NavigationMenuItem key={item.name}>
+                      <NavigationMenuLink asChild>
+                        <RollingLink
+  to={item.href}
+  className={`font-navigation font-[number:var(--navigation-font-weight)] text-main-black text-sm md:text-[length:var(--navigation-font-size)] tracking-[var(--navigation-letter-spacing)] px-4 py-2 group ${
+    location.pathname === item.href
+      ? "text-app-secondary"
+      : "text-main-black"
+  }`}
+>
+  {item.name}
+</RollingLink>
+                      </NavigationMenuLink>
+                    </NavigationMenuItem>
+                  ))}
+                </NavigationMenuList>
+              </NavigationMenu>
+            </div>
+            <div className="flex items-center ml-auto">
+              <LangDropdown i18n={i18n} />
+            </div>
           </div>
         </header>
 
@@ -111,17 +114,17 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
 
             <div className="flex gap-4 md:gap-8">
               {footerLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="nav-underline-animate font-navigation font-[number:var(--navigation-font-weight)] text-main-black text-sm md:text-[length:var(--navigation-font-size)] tracking-[var(--navigation-letter-spacing)] leading-[var(--navigation-line-height)] whitespace-nowrap [font-style:var(--navigation-font-style)] focus:outline-none focus:ring-2 focus:ring-app-secondary focus:ring-offset-2 rounded-sm px-2"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Visit my ${link.name} profile`}
-                >
-                  {link.name}
-                </a>
-              ))}
+  <RollingLink
+  key={link.name}
+  href={link.href}
+  className="font-navigation font-[number:var(--navigation-font-weight)] text-main-black text-sm md:text-[length:var(--navigation-font-size)] tracking-[var(--navigation-letter-spacing)] leading-[var(--navigation-line-height)] whitespace-nowrap [font-style:var(--navigation-font-style)] focus:outline-none focus:ring-2 focus:ring-app-secondary focus:ring-offset-2 rounded-sm px-2 group"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={`Visit my ${link.name} profile`}
+>
+  {link.name}
+</RollingLink>
+))}
             </div>
           </div>
         </footer>
