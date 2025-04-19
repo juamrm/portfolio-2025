@@ -7,7 +7,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "./ui/navigation-menu";
-import LangDropdown from "./LangDropdown";
+import LanguageSwitcher from "./LanguageSwitcher";
 import RollingLink from "./RollingLink";
 import HamburgerMenu from "./HamburgerMenu";
 
@@ -85,11 +85,7 @@ const Header: React.FC = () => {
               </span>
             </a>
             <div className="flex items-center">
-              <HamburgerMenu
-                navigationItems={navigationItems}
-                langDropdown={<LangDropdown i18n={i18n} />}
-                i18n={i18n}
-              />
+              <HamburgerMenu navigationItems={navigationItems} i18n={i18n} />
             </div>
           </div>
         </div>
@@ -141,9 +137,9 @@ const Header: React.FC = () => {
               </NavigationMenu>
             </div>
 
-            {/* Language Dropdown */}
+            {/* Language Switcher */}
             <div className="flex items-center">
-              <LangDropdown i18n={i18n} />
+              <LanguageSwitcher i18n={i18n} />
             </div>
           </div>
         </div>

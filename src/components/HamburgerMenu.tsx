@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import RollingLink from "./RollingLink";
 import { useLocation, useNavigate } from "react-router-dom";
-import LanguageFlags from "./LanguageFlags";
+import LanguageSwitcher from "./LanguageSwitcher";
 import { i18n } from "i18next";
 
 // Add the styles to your global CSS file or use a CSS-in-JS solution
@@ -61,13 +61,11 @@ const footerLinks = [
 
 interface HamburgerMenuProps {
   navigationItems: { name: string; href: string }[];
-  langDropdown?: React.ReactNode;
-  i18n?: i18n;
+  i18n: i18n;
 }
 
 const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
   navigationItems,
-  langDropdown,
   i18n,
 }) => {
   const [open, setOpen] = useState(false);
@@ -116,12 +114,18 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
   };
 
   return (
-    <div className="md:hidden relative z-50">
+    <div className="flex items-center gap-6 relative z-50">
+      {/* Language Switcher - visible on both mobile and desktop */}
+      <div className="flex items-center">
+        <LanguageSwitcher i18n={i18n} />
+      </div>
+
+      {/* Mobile Menu Button - only visible on mobile */}
       <button
         aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
         aria-controls="mobile-menu"
-        className="focus:outline-none focus:ring-2 focus:ring-app-secondary p-2 rounded-md"
+        className="md:hidden focus:outline-none focus:ring-2 focus:ring-app-secondary p-2 rounded-md"
         onClick={() => setOpen((v) => !v)}
       >
         {open ? (
@@ -131,37 +135,40 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className="w-6 h-6"
           >
             <path
               d="M18 6L6 18"
-              stroke="#000000"
+              stroke="currentColor"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
             <path
               d="M6 6L18 18"
-              stroke="#000000"
+              stroke="currentColor"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
           </svg>
         ) : (
-          <span className="block w-6 h-6 relative">
-            <span className="absolute top-1.5 block h-0.5 w-6 bg-main-black" />
-            <span className="absolute top-3 block h-0.5 w-6 bg-main-black" />
-            <span className="absolute top-4.5 block h-0.5 w-6 bg-main-black" />
-          </span>
+          <div className="w-6 h-6 flex flex-col justify-center space-y-1.5">
+            <span className="block h-0.5 w-6 bg-current" />
+            <span className="block h-0.5 w-6 bg-current" />
+            <span className="block h-0.5 w-6 bg-current" />
+          </div>
         )}
       </button>
+
+      {/* Mobile Menu Panel */}
       <div
         id="mobile-menu"
         ref={menuRef}
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation menu"
-        className={`fixed inset-0 bg-gray-50 z-50 transition-[clip-path] duration-500 ease-in-out ${
+        className={`fixed inset-0 bg-gray-50 z-50 transition-[clip-path] duration-500 ease-in-out md:hidden ${
           open
             ? "clip-path-circle-full pointer-events-auto"
             : "clip-path-circle-zero pointer-events-none"
@@ -238,11 +245,6 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
                   {link.icon}
                 </a>
               ))}
-            </div>
-
-            {/* Language Flags */}
-            <div className="flex justify-center">
-              {i18n ? <LanguageFlags i18n={i18n} /> : langDropdown}
             </div>
           </div>
         </div>
