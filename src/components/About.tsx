@@ -12,39 +12,39 @@ export const About = (): JSX.Element => {
   const tools = [
     {
       category: "productivity",
-      items: ["office", "googleSuite", "notion"],
+      items: ["OFFICE", "GOOGLE SUITE", "NOTION"],
     },
     {
       category: "design",
-      items: ["figma", "webflow", "framer", "adobeSuite"],
+      items: ["FIGMA", "WEBFLOW", "FRAMER", "ADOBE SUITE"],
     },
     {
       category: "projectManagement",
-      items: ["miro", "jira", "asana"],
+      items: ["MIRO", "JIRA", "ASANA"],
     },
     {
       category: "development",
       items: [
-        "html",
-        "css",
-        "javascript",
-        "typescript",
-        "react",
-        "vue",
-        "tailwindcss",
-        "sass",
-        "docker",
-        "vite",
-        "netlify",
-        "gsap",
-        "git",
-        "github",
-        "npm",
+        "HTML",
+        "CSS",
+        "JAVASCRIPT",
+        "TYPESCRIPT",
+        "REACT",
+        "VUE",
+        "TAILWINDCSS",
+        "SASS",
+        "DOCKER",
+        "VITE",
+        "NETLIFY",
+        "GSAP",
+        "GIT",
+        "GITHUB",
+        "NPM",
       ],
     },
     {
       category: "other",
-      items: ["cms", "chatgpt", "relume"],
+      items: ["CMS", "CHATGPT", "RELUME"],
     },
   ];
 
@@ -54,7 +54,7 @@ export const About = (): JSX.Element => {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
         {/* Left column for heading */}
         <div className="md:col-span-4">
-          <h2 className="font-dm-sans text-2xl md:text-[length:var(--heading-2-font-size)] text-main-black tracking-[var(--heading-2-letter-spacing)] leading-[var(--heading-2-line-height)]">
+          <h2 className="font-dm-sans text-xl md:text-[length:var(--heading-2-font-size)] text-main-black tracking-[var(--heading-2-letter-spacing)] leading-[var(--heading-2-line-height)]">
             {t("about.title")}
           </h2>
         </div>
@@ -62,7 +62,7 @@ export const About = (): JSX.Element => {
         {/* Right column for content */}
         <div className="md:col-span-8">
           <div className="space-y-6">
-            <p className="font-dm-sans text-[length:var(--body-font-size)] text-main-gray tracking-[var(--body-letter-spacing)] leading-[var(--body-line-height)]">
+            <p className="font-dm-sans text-sm md:text-[length:var(--body-font-size)] text-main-gray tracking-[var(--body-letter-spacing)] leading-[var(--body-line-height)]">
               {t("about.introduction")}
             </p>
 
@@ -72,10 +72,10 @@ export const About = (): JSX.Element => {
                   key={item.key}
                   className="border-l-2 border-app-secondary pl-6 py-1"
                 >
-                  <h3 className="font-dm-sans text-xl md:text-2xl text-main-black tracking-[var(--heading-2-letter-spacing)] leading-[var(--heading-2-line-height)] mb-2">
+                  <h3 className="font-dm-sans text-lg md:text-2xl text-main-black tracking-[var(--heading-2-letter-spacing)] leading-[var(--heading-2-line-height)] mb-2">
                     {t(`about.education.${item.key}.title`)}
                   </h3>
-                  <p className="font-dm-sans text-[length:var(--body-font-size)] text-main-gray tracking-[var(--body-letter-spacing)] leading-[var(--body-line-height)]">
+                  <p className="font-dm-sans text-sm md:text-[length:var(--body-font-size)] text-main-gray tracking-[var(--body-letter-spacing)] leading-[var(--body-line-height)]">
                     {t(`about.education.${item.key}.description`)}
                   </p>
                 </div>
@@ -88,8 +88,8 @@ export const About = (): JSX.Element => {
       {/* Tools Section */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
         <div className="md:col-span-4">
-          <h2 className="font-dm-sans text-2xl md:text-[length:var(--heading-2-font-size)] text-main-black tracking-[var(--heading-2-letter-spacing)] leading-[var(--heading-2-line-height)]">
-            {t("about.stack")}
+          <h2 className="font-dm-sans text-xl md:text-[length:var(--heading-2-font-size)] text-main-black tracking-[var(--heading-2-letter-spacing)] leading-[var(--heading-2-line-height)]">
+            Stack
           </h2>
         </div>
 
@@ -111,7 +111,7 @@ export const About = (): JSX.Element => {
                       key={tool}
                       className="inline-block mr-2 mb-2 py-0.5 px-2.5 bg-gray-50 rounded text-xs text-main-gray border border-gray-100"
                     >
-                      {t(`about.tools.${tool}`)}
+                      {tool}
                     </div>
                   ))}
                 </div>
