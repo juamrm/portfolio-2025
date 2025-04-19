@@ -3,16 +3,17 @@ import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { projects } from "../../data/projects";
 import { ContactIcons } from "../../components/Contact";
+import { Project } from "../../types/project";
 
 export const ProjectPage = (): JSX.Element => {
-  const { projectId } = useParams();
+  const { projectId } = useParams<{ projectId: string }>();
   const { t } = useTranslation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const project = projects.find((p) => p.id === projectId);
+  const project = projects.find((p: Project) => p.id === projectId);
 
   if (!project) {
     return <div>Project not found</div>;
@@ -60,7 +61,7 @@ export const ProjectPage = (): JSX.Element => {
             {t("projects.toolsUsed")}
           </h2>
           <div className="flex flex-wrap gap-2">
-            {project.tools?.map((tool) => (
+            {project.tools.map((tool: string) => (
               <span
                 key={tool}
                 className="inline-block px-3 py-1 bg-[#f8f8f8] rounded-lg text-sm text-main-gray"
@@ -78,7 +79,7 @@ export const ProjectPage = (): JSX.Element => {
           {t("projects.projectGallery")}
         </h2>
         <div className="grid grid-cols-1 gap-8">
-          {project.gallery?.map((image, index) => (
+          {project.gallery?.map((image: string, index: number) => (
             <img
               key={index}
               src={image}

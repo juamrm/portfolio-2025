@@ -1,5 +1,5 @@
-import React from 'react';
-import { i18n } from 'i18next';
+import React from "react";
+import { i18n } from "i18next";
 
 interface LanguageFlagsProps {
   i18n: i18n;
@@ -7,13 +7,21 @@ interface LanguageFlagsProps {
 
 const LanguageFlags: React.FC<LanguageFlagsProps> = ({ i18n }) => {
   const languages = [
-    { code: 'en', flag: '🇺🇸', name: 'English' },
-    { code: 'es', flag: '🇪🇸', name: 'Spanish' },
-    { code: 'pt', flag: '🇧🇷', name: 'Portuguese' }
+    { code: "en", flag: "🇺🇸", name: "English" },
+    { code: "es", flag: "🇪🇸", name: "Spanish" },
+    { code: "pt-BR", flag: "🇧🇷", name: "Portuguese" },
   ];
 
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
+  const handleLanguageChange = async (lng: string) => {
+    try {
+      await i18n.changeLanguage(lng);
+      // Force a re-render of the app by updating localStorage
+      localStorage.setItem("i18nextLng", lng);
+      // Reload translations
+      document.documentElement.lang = lng;
+    } catch (error) {
+      console.error("Error changing language:", error);
+    }
   };
 
   return (
@@ -21,9 +29,9 @@ const LanguageFlags: React.FC<LanguageFlagsProps> = ({ i18n }) => {
       {languages.map((lang) => (
         <button
           key={lang.code}
-          onClick={() => changeLanguage(lang.code)}
-          className={`text-xl focus:outline-none focus:ring-2 focus:ring-app-secondary p-1 rounded-full transition-all hover:scale-110 ${
-            i18n.language !== lang.code ? 'opacity-40' : ''
+          onClick={() => handleLanguageChange(lang.code)}
+          className={`text-xl transition-all hover:scale-110 ${
+            i18n.language !== lang.code ? "opacity-40" : ""
           }`}
           aria-label={`Change language to ${lang.name}`}
           title={lang.name}

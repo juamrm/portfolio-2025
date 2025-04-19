@@ -6,18 +6,44 @@
     "contact": "Contato"
   },
   "hero": {
-    "greeting": "Oi, eu sou Juliana Amorim",
-    "description": "Desenvolvedora Full-Stack e Designer UX/UI criando experiências digitais significativas através de código limpo e design intuitivo."
+    "greeting": "Olá, sou Juliana Amorim",
+    "description": "Transformando ideias em experiências digitais excepcionais. Desenvolvedora Full-Stack e Designer UX/UI apaixonada por criar soluções centradas no usuário que geram impacto."
   },
   "about": {
-    "stack": "Meu stack",
-    "mainSkills": "Principais habilidades",
-    "title": "Sobre mim",
+    "stack": "Minha Stack Tecnológica e Ferramentas",
+    "mainSkills": "Principais Habilidades",
+    "title": "Sobre Mim",
     "introduction": "Sou Juliana Amorim, Desenvolvedora Web Full-Stack e Designer UX/UI dedicada a criar experiências digitais intuitivas e impactantes.",
+    "categories": {
+      "productivity": "Produtividade",
+      "design": "Design",
+      "projectManagement": "Gestão de Projetos",
+      "development": "Desenvolvimento",
+      "other": "Outros"
+    },
+    "tools": {
+      "office": "Office",
+      "googleSuite": "Google Suite",
+      "notion": "Notion",
+      "figma": "Figma",
+      "webflow": "Webflow",
+      "framer": "Framer",
+      "adobeSuite": "Adobe Suite",
+      "miro": "Miro",
+      "jira": "Jira",
+      "asana": "Asana",
+      "css": "CSS",
+      "javascript": "JavaScript",
+      "react": "React",
+      "saas": "SaaS",
+      "cms": "CMS",
+      "chatgpt": "ChatGPT",
+      "relume": "Relume"
+    },
     "education": {
       "factoria": {
         "title": "Factoría F5",
-        "description": "Uma escola digital inclusiva na Espanha, oferecendo treinamento intensivo e de alto impacto em desenvolvimento web e mobile, visando proporcionar acesso a oportunidades de emprego de alta demanda."
+        "description": "Uma escola digital inclusiva na Espanha, oferecendo treinamento intensivo e de alto impacto em desenvolvimento móvel e web, visando proporcionar acesso a oportunidades de trabalho de alta demanda."
       },
       "tramontana": {
         "title": "Instituto Tramontana",
@@ -25,7 +51,7 @@
       },
       "nuclio": {
         "title": "Nuclio Digital School",
-        "description": "Uma instituição líder em formação digital na Espanha, oferecendo programas de Mestrado em áreas como Design UX/UI e Desenvolvimento Full Stack, com ênfase no aprendizado prático e aplicado."
+        "description": "Uma instituição líder em formação digital na Espanha, oferecendo programas de Mestrado em áreas como Design UX/UI e Desenvolvimento Full Stack, enfatizando o aprendizado prático."
       }
     }
   },
@@ -38,18 +64,18 @@
       },
       "uiUxDesign": {
         "title": "Design UI/UX",
-        "description": "Aprimoramento da UX com designs de interface intuitivos e esteticamente agradáveis para aplicações web e mobile."
+        "description": "Aprimoramento da experiência do usuário com designs de interface intuitivos e esteticamente agradáveis para aplicações web e mobile."
       },
       "webDevelopment": {
         "title": "Desenvolvimento Web",
-        "description": "Construção de sites robustos, escaláveis e de alta performance utilizando as mais recentes tecnologias para garantir uma UX perfeita."
+        "description": "Construção de sites robustos, escaláveis e de alta performance utilizando as últimas tecnologias para garantir uma experiência do usuário perfeita."
       }
     }
   },
   "projects": {
     "title": "Projetos Selecionados",
-    "introduction": "Explore meu portfólio que apresenta uma combinação de desenvolvimento web moderno, design intuitivo e experiência técnica. Cada projeto representa um desafio único na criação de experiências digitais fluidas que combinam estética com funcionalidade.",
-    "backToProjects": "Voltar para Projetos",
+    "introduction": "Explore meu portfólio que apresenta uma combinação de desenvolvimento web moderno, design intuitivo e expertise técnica. Cada projeto representa um desafio único na criação de experiências digitais que combinam estética com funcionalidade.",
+    "backToProjects": "Voltar aos Projetos",
     "toolsUsed": "Ferramentas Utilizadas",
     "projectGallery": "Galeria do Projeto",
     "items": {
@@ -80,7 +106,7 @@
       },
       "message": {
         "label": "Mensagem",
-        "placeholder": "Conte-me sobre seu projeto..."
+        "placeholder": "Me conte sobre seu projeto..."
       },
       "submit": "Enviar Mensagem"
     },
@@ -92,6 +118,6 @@
   "underConstruction": {
     "title": "Em Construção",
     "description": "Este projeto está atualmente em desenvolvimento. Volte em breve para ver as coisas incríveis que estamos construindo!",
-    "backButton": "Voltar para Projetos"
+    "backButton": "Voltar aos Projetos"
   }
 }

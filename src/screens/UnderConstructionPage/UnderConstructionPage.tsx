@@ -1,13 +1,14 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 export const UnderConstructionPage = (): JSX.Element => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const location = useLocation();
+  const returnPath = location.state?.returnPath || "/";
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
-      {/* Construction Icon */}
+      {/* Work in Progress Icon */}
       <div className="w-16 h-16 rounded-full bg-app-secondary/10 flex items-center justify-center mb-6">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -21,10 +22,12 @@ export const UnderConstructionPage = (): JSX.Element => {
           strokeLinejoin="round"
           className="text-app-secondary"
         >
-          <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-          <path d="M9 9h.01" />
-          <path d="M15 9h.01" />
-          <path d="M8 13h8" />
+          <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z" />
+          <path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+          <path d="m12 2 2 2-2 2-2-2 2-2Z" />
+          <path d="m20 12 2-2-2-2-2 2 2 2Z" />
+          <path d="m2 12 2 2 2-2-2-2-2 2Z" />
+          <path d="m12 22-2-2 2-2 2 2-2 2Z" />
         </svg>
       </div>
 
@@ -38,7 +41,7 @@ export const UnderConstructionPage = (): JSX.Element => {
 
       {/* Back Button */}
       <Link
-        to="/work"
+        to={returnPath}
         className="inline-flex items-center gap-2 text-app-secondary hover:text-app-secondary/80 transition-colors duration-200"
       >
         <svg

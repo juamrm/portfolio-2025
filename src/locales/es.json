@@ -7,17 +7,43 @@
   },
   "hero": {
     "greeting": "Hola, soy Juliana Amorim",
-    "description": "Desarrolladora Full-Stack y Diseñadora UX/UI creando experiencias digitales significativas a través de código limpio y diseño intuitivo."
+    "description": "Transformando ideas en experiencias digitales excepcionales. Desarrolladora Full-Stack y Diseñadora UX/UI apasionada por crear soluciones centradas en el usuario que generan impacto."
   },
   "about": {
-    "stack": "Mi stack",
-    "mainSkills": "Principales habilidades",
-    "title": "Sobre mí",
+    "stack": "Mi Stack Tecnológico y Herramientas",
+    "mainSkills": "Habilidades Principales",
+    "title": "Sobre Mí",
     "introduction": "Soy Juliana Amorim, Desarrolladora Web Full-Stack y Diseñadora UX/UI dedicada a crear experiencias digitales intuitivas e impactantes.",
+    "categories": {
+      "productivity": "Productividad",
+      "design": "Diseño",
+      "projectManagement": "Gestión de Proyectos",
+      "development": "Desarrollo",
+      "other": "Otros"
+    },
+    "tools": {
+      "office": "Office",
+      "googleSuite": "Google Suite",
+      "notion": "Notion",
+      "figma": "Figma",
+      "webflow": "Webflow",
+      "framer": "Framer",
+      "adobeSuite": "Adobe Suite",
+      "miro": "Miro",
+      "jira": "Jira",
+      "asana": "Asana",
+      "css": "CSS",
+      "javascript": "JavaScript",
+      "react": "React",
+      "saas": "SaaS",
+      "cms": "CMS",
+      "chatgpt": "ChatGPT",
+      "relume": "Relume"
+    },
     "education": {
       "factoria": {
         "title": "Factoría F5",
-        "description": "Una escuela digital inclusiva en España que ofrece formación intensiva y de alto impacto en desarrollo web y móvil, con el objetivo de proporcionar acceso a oportunidades laborales de alta demanda."
+        "description": "Una escuela digital inclusiva en España que ofrece formación intensiva y de alto impacto en desarrollo móvil y web, con el objetivo de brindar acceso a oportunidades laborales de alta demanda."
       },
       "tramontana": {
         "title": "Instituto Tramontana",
@@ -25,7 +51,7 @@
       },
       "nuclio": {
         "title": "Nuclio Digital School",
-        "description": "Una institución líder en formación digital en España, que ofrece programas de Máster en áreas como Diseño UX/UI y Desarrollo Full Stack, enfatizando el aprendizaje práctico y aplicado."
+        "description": "Una institución líder en formación digital en España, que ofrece programas de Máster en áreas como Diseño UX/UI y Desarrollo Full Stack, enfatizando el aprendizaje práctico."
       }
     }
   },
@@ -34,7 +60,7 @@
     "items": {
       "webDesign": {
         "title": "Diseño Web",
-        "description": "Creación de sitios web atractivos y responsivos que capturan la esencia de tu marca y conectan con tu audiencia."
+        "description": "Creación de sitios web impresionantes y responsivos que capturan la esencia de tu marca y conectan con tu audiencia."
       },
       "uiUxDesign": {
         "title": "Diseño UI/UX",
@@ -48,7 +74,7 @@
   },
   "projects": {
     "title": "Proyectos Seleccionados",
-    "introduction": "Explora mi portafolio que muestra una combinación de desarrollo web moderno, diseño intuitivo y experiencia técnica. Cada proyecto representa un desafío único en la creación de experiencias digitales fluidas que combinan estética con funcionalidad.",
+    "introduction": "Explora mi portafolio que muestra una combinación de desarrollo web moderno, diseño intuitivo y experiencia técnica. Cada proyecto representa un desafío único en la creación de experiencias digitales que combinan estética con funcionalidad.",
     "backToProjects": "Volver a Proyectos",
     "toolsUsed": "Herramientas Utilizadas",
     "projectGallery": "Galería del Proyecto",

@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 const footerLinks = [
   {
     name: "Linkedin",
-    href: "https://www.linkedin.com/in/juamorim/",
+    href: "https://www.linkedin.com/in/julianaamrm/",
     icon: (
       <svg
         width="24"

@@ -7,13 +7,50 @@
   },
   "hero": {
     "greeting": "Hi, I'm Juliana Amorim",
-    "description": "Full-Stack Developer and UX/UI Designer crafting meaningful digital experiences through clean code and intuitive design."
+    "description": "Transforming ideas into exceptional digital experiences. Full-Stack Developer & UX/UI Designer passionate about creating user-centered solutions that make an impact."
   },
   "about": {
-    "stack": "My stack",
+    "stack": "My Tech Stack & Tools",
     "mainSkills": "Main Skills",
     "title": "About Me",
     "introduction": "I'm Juliana Amorim, a Full-Stack Web Developer and UX/UI Designer dedicated to crafting intuitive and impactful digital experiences.",
+    "categories": {
+      "productivity": "Productivity",
+      "design": "Design",
+      "projectManagement": "Project Management",
+      "development": "Development",
+      "other": "Other"
+    },
+    "tools": {
+      "office": "Office",
+      "googleSuite": "Google Suite",
+      "notion": "Notion",
+      "figma": "Figma",
+      "webflow": "Webflow",
+      "framer": "Framer",
+      "adobeSuite": "Adobe Suite",
+      "miro": "Miro",
+      "jira": "Jira",
+      "asana": "Asana",
+      "html": "HTML",
+      "css": "CSS",
+      "javascript": "JavaScript",
+      "typescript": "TypeScript",
+      "react": "React",
+      "vue": "Vue.js",
+      "tailwindcss": "Tailwind CSS",
+      "sass": "Sass",
+      "docker": "Docker",
+      "vite": "Vite",
+      "netlify": "Netlify",
+      "gsap": "GSAP",
+      "git": "Git",
+      "github": "GitHub",
+      "npm": "npm",
+      "cms": "CMS",
+      "chatgpt": "ChatGPT",
+      "relume": "Relume"
+    },
     "education": {
       "factoria": {
         "title": "Factoría F5",
