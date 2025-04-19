@@ -1,5 +1,18 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import emailjs from "@emailjs/browser";
+
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
+interface FormErrors {
+  name?: string;
+  email?: string;
+  message?: string;
+}
 
 export const ContactIcons = () => {
   return (
@@ -54,29 +67,90 @@ export const ContactIcons = () => {
 
 export const Contact = (): JSX.Element => {
   const { t } = useTranslation();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     message: "",
   });
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = t("contact.form.errors.nameRequired");
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = t("contact.form.errors.emailRequired");
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = t("contact.form.errors.emailInvalid");
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = t("contact.form.errors.messageRequired");
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically handle the form submission
-    console.log("Form submitted:", formData);
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      await emailjs.send(
+        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
+        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_name: "Juliana",
+        },
+        "YOUR_PUBLIC_KEY" // Replace with your EmailJS public key
+      );
+
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    // Clear error when user starts typing
+    if (errors[name as keyof FormErrors]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: undefined,
+      }));
+    }
   };
 
   return (
-    <section id="contact" className="w-full mb-12 md:mb-20">
+    <section id="contact" className="w-full mb-8 md:mb-16">
       <div className="max-w-[1200px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
           {/* Left Column - Contact Info */}
@@ -107,10 +181,16 @@ export const Contact = (): JSX.Element => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 focus:border-app-secondary focus:ring-1 focus:ring-app-secondary outline-none transition-colors duration-200 font-dm-sans"
+                  className={`w-full px-4 py-3 rounded-xl bg-white border transition-colors duration-200 font-dm-sans ${
+                    errors.name
+                      ? "border-red-500"
+                      : "border-gray-200 focus:border-app-secondary focus:ring-1 focus:ring-app-secondary"
+                  }`}
                   placeholder={t("contact.form.name.placeholder")}
                 />
+                {errors.name && (
+                  <p className="mt-1 text-sm text-red-500">{errors.name}</p>
+                )}
               </div>
 
               <div>
@@ -126,10 +206,16 @@ export const Contact = (): JSX.Element => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 focus:border-app-secondary focus:ring-1 focus:ring-app-secondary outline-none transition-colors duration-200 font-dm-sans"
+                  className={`w-full px-4 py-3 rounded-xl bg-white border transition-colors duration-200 font-dm-sans ${
+                    errors.email
+                      ? "border-red-500"
+                      : "border-gray-200 focus:border-app-secondary focus:ring-1 focus:ring-app-secondary"
+                  }`}
                   placeholder={t("contact.form.email.placeholder")}
                 />
+                {errors.email && (
+                  <p className="mt-1 text-sm text-red-500">{errors.email}</p>
+                )}
               </div>
 
               <div>
@@ -144,18 +230,43 @@ export const Contact = (): JSX.Element => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 focus:border-app-secondary focus:ring-1 focus:ring-app-secondary outline-none transition-colors duration-200 font-dm-sans resize-none"
+                  className={`w-full px-4 py-3 rounded-xl bg-white border transition-colors duration-200 font-dm-sans resize-none ${
+                    errors.message
+                      ? "border-red-500"
+                      : "border-gray-200 focus:border-app-secondary focus:ring-1 focus:ring-app-secondary"
+                  }`}
                   placeholder={t("contact.form.message.placeholder")}
                 />
+                {errors.message && (
+                  <p className="mt-1 text-sm text-red-500">{errors.message}</p>
+                )}
               </div>
+
+              {submitStatus === "success" && (
+                <div className="p-4 bg-green-50 text-green-700 rounded-xl">
+                  {t("contact.form.successMessage")}
+                </div>
+              )}
+
+              {submitStatus === "error" && (
+                <div className="p-4 bg-red-50 text-red-700 rounded-xl">
+                  {t("contact.form.errorMessage")}
+                </div>
+              )}
 
               <button
                 type="submit"
-                className="w-full bg-main-black text-white font-dm-sans py-4 px-8 rounded-xl hover:bg-app-secondary transition-colors duration-200"
+                disabled={isSubmitting}
+                className={`w-full bg-main-black text-white font-dm-sans py-4 px-8 rounded-xl transition-all duration-200 ${
+                  isSubmitting
+                    ? "opacity-75 cursor-not-allowed"
+                    : "hover:bg-app-secondary"
+                }`}
               >
-                {t("contact.form.submit")}
+                {isSubmitting
+                  ? t("contact.form.submitting")
+                  : t("contact.form.submit")}
               </button>
             </form>
           </div>

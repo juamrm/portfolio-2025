@@ -49,12 +49,12 @@ export const About = (): JSX.Element => {
   ];
 
   return (
-    <section className="space-y-16 mb-20">
+    <section className="space-y-24 mb-16">
       {/* About Section */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
         {/* Left column for heading */}
         <div className="md:col-span-4">
-          <h2 className="font-dm-sans text-xl md:text-[length:var(--heading-2-font-size)] text-main-black tracking-[var(--heading-2-letter-spacing)] leading-[var(--heading-2-line-height)]">
+          <h2 className="font-dm-sans text-base md:text-lg text-main-black tracking-[var(--heading-2-letter-spacing)] leading-[var(--heading-2-line-height)]">
             {t("about.title")}
           </h2>
         </div>
@@ -72,7 +72,7 @@ export const About = (): JSX.Element => {
                   key={item.key}
                   className="border-l-2 border-app-secondary pl-6 py-1"
                 >
-                  <h3 className="font-dm-sans text-lg md:text-2xl text-main-black tracking-[var(--heading-2-letter-spacing)] leading-[var(--heading-2-line-height)] mb-2">
+                  <h3 className="font-dm-sans text-base md:text-lg text-main-black tracking-[var(--heading-2-letter-spacing)] leading-[var(--heading-2-line-height)] mb-2">
                     {t(`about.education.${item.key}.title`)}
                   </h3>
                   <p className="font-dm-sans text-sm md:text-[length:var(--body-font-size)] text-main-gray tracking-[var(--body-letter-spacing)] leading-[var(--body-line-height)]">
@@ -88,7 +88,7 @@ export const About = (): JSX.Element => {
       {/* Tools Section */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
         <div className="md:col-span-4">
-          <h2 className="font-dm-sans text-xl md:text-[length:var(--heading-2-font-size)] text-main-black tracking-[var(--heading-2-letter-spacing)] leading-[var(--heading-2-line-height)]">
+          <h2 className="font-dm-sans text-base md:text-lg text-main-black tracking-[var(--heading-2-letter-spacing)] leading-[var(--heading-2-line-height)]">
             Stack
           </h2>
         </div>
@@ -102,14 +102,14 @@ export const About = (): JSX.Element => {
                   category.category === "development" ? "col-span-2" : ""
                 }
               >
-                <h3 className="font-dm-sans text-sm uppercase tracking-wider text-main-black mb-3 opacity-80">
+                <h3 className="font-dm-sans text-xs uppercase tracking-wider text-main-black mb-3 opacity-80">
                   {t(`about.categories.${category.category}`)}
                 </h3>
                 <div className="space-y-1.5">
                   {category.items.map((tool) => (
                     <div
                       key={tool}
-                      className="inline-block mr-2 mb-2 py-0.5 px-2.5 bg-gray-50 rounded text-xs text-main-gray border border-gray-100"
+                      className="inline-block mr-2 mb-2 px-3 py-1 rounded-full bg-[#FAFAFA] text-xs text-main-gray transition-colors duration-300 hover:bg-app-secondary/5 border border-gray-100"
                     >
                       {tool}
                     </div>

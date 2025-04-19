@@ -1,12 +1,17 @@
 import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import { Root, createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./i18n"; // Import i18n configuration
 import { Layout } from "./components/Layout";
 import { HomePage } from "./screens/HomePage/HomePage";
 import { WorkPage } from "./screens/WorkPage/WorkPage";
 import { ProjectPage } from "./screens/ProjectPage/ProjectPage";
 
-createRoot(document.getElementById("app") as HTMLElement).render(
+const container = document.getElementById("app");
+if (!container) throw new Error("Failed to find the root element");
+
+const root: Root = createRoot(container);
+root.render(
   <StrictMode>
     <Router>
       <Layout>

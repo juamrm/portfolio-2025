@@ -10,10 +10,10 @@
     "description": "Transformando ideias em experiências digitais excepcionais. Desenvolvedora Full-Stack e Designer UX/UI apaixonada por criar soluções centradas no usuário que geram impacto."
   },
   "about": {
-    "stack": "Minha Stack Tecnológica e Ferramentas",
+    "stack": "Meu Stack Tecnológico e Ferramentas",
     "mainSkills": "Principais Habilidades",
     "title": "Sobre Mim",
-    "introduction": "Sou Juliana Amorim, Desenvolvedora Web Full-Stack e Designer UX/UI dedicada a criar experiências digitais intuitivas e impactantes.",
+    "introduction": "Olá! Sou desenvolvedora web full-stack e designer de produtos com mais de 15 anos de experiência em produção de conteúdo. Ao longo da minha carreira, liderei uma ampla gama de projetos e colaborei com equipes e clientes de todo o mundo, especialmente nos setores de tecnologia e eventos.\n\nMinha paixão por interatividade e tecnologia me levou a fazer uma transição natural para o design digital e desenvolvimento web. O que me motiva é criar produtos digitais que vão além da funcionalidade — produtos que são verdadeiramente acessíveis, envolventes e centrados nas necessidades humanas reais.",
     "categories": {
       "productivity": "Produtividade",
       "design": "Design",
@@ -32,26 +32,38 @@
       "miro": "Miro",
       "jira": "Jira",
       "asana": "Asana",
+      "html": "HTML",
       "css": "CSS",
       "javascript": "JavaScript",
+      "typescript": "TypeScript",
       "react": "React",
-      "saas": "SaaS",
+      "vue": "Vue.js",
+      "tailwindcss": "Tailwind CSS",
+      "sass": "Sass",
+      "docker": "Docker",
+      "vite": "Vite",
+      "netlify": "Netlify",
+      "gsap": "GSAP",
+      "git": "Git",
+      "github": "GitHub",
+      "npm": "npm",
       "cms": "CMS",
-      "chatgpt": "ChatGPT",
-      "relume": "Relume"
+      "others": "Ferramentas IA",
+      "relume": "Relume",
+      "designSystem": "Sistema de Design"
     },
     "education": {
       "factoria": {
-        "title": "Factoría F5",
-        "description": "Uma escola digital inclusiva na Espanha, oferecendo treinamento intensivo e de alto impacto em desenvolvimento móvel e web, visando proporcionar acesso a oportunidades de trabalho de alta demanda."
+        "title": "Factoría F5 - Madrid 2024",
+        "description": "Desenvolvimento Web Full Stack 850h"
       },
       "tramontana": {
-        "title": "Instituto Tramontana",
-        "description": "Uma escola de negócios com abordagem humanística e multidisciplinar, focada em elevar profissionais que criam produtos e serviços."
+        "title": "Instituto Tramontana - Madrid 2024",
+        "description": "Design Digital"
       },
       "nuclio": {
-        "title": "Nuclio Digital School",
-        "description": "Uma instituição líder em formação digital na Espanha, oferecendo programas de Mestrado em áreas como Design UX/UI e Desenvolvimento Full Stack, enfatizando o aprendizado prático."
+        "title": "Nuclio Digital School - Madrid 2023",
+        "description": "Master em Design UXUI"
       }
     }
   },
@@ -64,7 +76,7 @@
       },
       "uiUxDesign": {
         "title": "Design UI/UX",
-        "description": "Aprimoramento da experiência do usuário com designs de interface intuitivos e esteticamente agradáveis para aplicações web e mobile."
+        "description": "Aprimoramento da experiência do usuário com designs de interface intuitivos e esteticamente agradáveis, criação de sistemas de design abrangentes e experiências fluidas para aplicações web e mobile."
       },
       "webDevelopment": {
         "title": "Desenvolvimento Web",

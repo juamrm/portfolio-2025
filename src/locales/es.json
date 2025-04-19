@@ -13,7 +13,7 @@
     "stack": "Mi Stack Tecnológico y Herramientas",
     "mainSkills": "Habilidades Principales",
     "title": "Sobre Mí",
-    "introduction": "Soy Juliana Amorim, Desarrolladora Web Full-Stack y Diseñadora UX/UI dedicada a crear experiencias digitales intuitivas e impactantes.",
+    "introduction": "¡Hola! Soy desarrolladora web full-stack y diseñadora de productos con más de 15 años de experiencia en producción de contenido. A lo largo de mi carrera, he liderado una amplia gama de proyectos y colaborado con equipos y clientes de todo el mundo, especialmente en los sectores de tecnología y eventos.\n\nMi pasión por la interactividad y la tecnología me llevó a hacer una transición natural hacia el diseño digital y el desarrollo web. Lo que me impulsa es crear productos digitales que van más allá de la funcionalidad: productos que son verdaderamente accesibles, atractivos y centrados en las necesidades humanas reales.",
     "categories": {
       "productivity": "Productividad",
       "design": "Diseño",
@@ -37,22 +37,22 @@
       "react": "React",
       "saas": "SaaS",
       "cms": "CMS",
-      "chatgpt": "ChatGPT",
-      "midjourney": "Midjourney",
-      "relume": "Relume"
+      "others": "Herramientas IA",
+      "relume": "Relume",
+      "designSystem": "Sistema de Diseño"
     },
     "education": {
       "factoria": {
-        "title": "Factoría F5",
-        "description": "Una escuela digital inclusiva en España que ofrece formación intensiva y de alto impacto en desarrollo móvil y web, con el objetivo de brindar acceso a oportunidades laborales de alta demanda."
+        "title": "Factoría F5 - Madrid 2024",
+        "description": "Desarrollo Web Fullstack 850h"
       },
       "tramontana": {
-        "title": "Instituto Tramontana",
-        "description": "Una escuela de negocios con un enfoque humanístico y multidisciplinario, centrada en elevar a profesionales que crean productos y servicios."
+        "title": "Instituto Tramontana - Madrid 2024",
+        "description": "Diseño Digital"
       },
       "nuclio": {
-        "title": "Nuclio Digital School",
-        "description": "Una institución líder en formación digital en España, que ofrece programas de Máster en áreas como Diseño UX/UI y Desarrollo Full Stack, enfatizando el aprendizaje práctico."
+        "title": "Nuclio Digital School - Madrid 2023",
+        "description": "Máster en Diseño UXUI"
       }
     }
   },
@@ -65,7 +65,7 @@
       },
       "uiUxDesign": {
         "title": "Diseño UI/UX",
-        "description": "Mejora de la experiencia de usuario con diseños de interfaz intuitivos y estéticamente agradables para aplicaciones web y móviles."
+        "description": "Mejora de la experiencia de usuario con diseños de interfaz intuitivos y estéticamente agradables, creación de sistemas de diseño completos y experiencias fluidas para aplicaciones web y móviles."
       },
       "webDevelopment": {
         "title": "Desarrollo Web",

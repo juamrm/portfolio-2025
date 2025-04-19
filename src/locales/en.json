@@ -13,7 +13,7 @@
     "stack": "My Tech Stack & Tools",
     "mainSkills": "Main Skills",
     "title": "About Me",
-    "introduction": "I'm Juliana Amorim, a Full-Stack Web Developer and UX/UI Designer dedicated to crafting intuitive and impactful digital experiences.",
+    "introduction": "Hi! I'm a full-stack web developer and product designer with over 15 years of experience in content production. Throughout my career, I've led a wide range of projects and collaborated with teams and clients from around the world, especially in the technology and events sectors.\n\nMy passion for interactivity and technology led me to naturally transition into digital design and web development. What drives me is creating digital products that go beyond functionality—products that are truly accessible, engaging, and centered on real human needs.",
     "categories": {
       "productivity": "Productivity",
       "design": "Design",
@@ -48,21 +48,22 @@
       "github": "GitHub",
       "npm": "npm",
       "cms": "CMS",
-      "chatgpt": "ChatGPT",
-      "relume": "Relume"
+      "others": "AI tools",
+      "relume": "Relume",
+      "designSystem": "Design System"
     },
     "education": {
       "factoria": {
-        "title": "Factoría F5",
-        "description": "An inclusive digital school in Spain, offering intensive, high-impact training in mobile and web development, aiming to provide access to high-demand employment opportunities."
+        "title": "Factoría F5 - Madrid 2024",
+        "description": "Fullstack Web Development 850h"
       },
       "tramontana": {
-        "title": "Instituto Tramontana",
-        "description": "A business school with a humanistic and multidisciplinary approach, focusing on elevating professionals who create products and services."
+        "title": "Instituto Tramontana - Madrid 2024",
+        "description": "Digital Design"
       },
       "nuclio": {
-        "title": "Nuclio Digital School",
-        "description": "A leading digital training institution in Spain, offering Master's programs in areas like UX/UI Design and Full Stack Development, emphasizing practical, hands-on learning."
+        "title": "Nuclio Digital School - Madrid 2023",
+        "description": "Master UXUI Design"
       }
     }
   },
@@ -75,7 +76,7 @@
       },
       "uiUxDesign": {
         "title": "UI/UX Design",
-        "description": "Enhancing UX with intuitive and aesthetically pleasing interface designs for both web and mobile applications."
+        "description": "Enhancing UX with intuitive and aesthetically pleasing interface designs, creating comprehensive design systems, and delivering seamless experiences for both web and mobile applications."
       },
       "webDevelopment": {
         "title": "Web Development",

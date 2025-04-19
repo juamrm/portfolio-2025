@@ -71,16 +71,21 @@ const Header: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-200 before:content-[''] before:absolute before:inset-0 before:-z-10 ${
         isScrolled
-          ? "before:bg-[var(--app-background)]/95 before:backdrop-blur-sm"
+          ? "before:bg-[var(--app-background)]/98 before:backdrop-blur-sm"
           : "before:bg-transparent"
       }`}
     >
       {/* Mobile sticky header */}
       <div className="md:hidden py-4">
-        <div className="px-4 sm:px-8">
+        <div className="px-4 sm:px-6">
           <div className="flex justify-between items-center max-w-[1440px] mx-auto">
-            <a href="/" onClick={handleLogoClick} aria-label="Home page">
-              <span className="font-dm-sans text-2xl font-bold text-main-black">
+            <a
+              href="/"
+              onClick={handleLogoClick}
+              aria-label="Home page"
+              className="pl-0 sm:pl-2"
+            >
+              <span className="font-dm-sans text-2xl sm:text-3xl font-bold text-main-black">
                 j.amrm
               </span>
             </a>
@@ -92,24 +97,24 @@ const Header: React.FC = () => {
       </div>
 
       {/* Desktop header */}
-      <div className="hidden md:block pt-6 pb-8">
-        <div className="px-16 lg:px-40">
+      <div className="hidden md:block pt-4 pb-6">
+        <div className="px-8 lg:px-16 xl:px-40">
           <div className="flex flex-row items-center justify-between w-full max-w-[1440px] mx-auto">
             <a
               href="/"
               onClick={handleLogoClick}
               aria-label="Home page"
-              className="flex items-center"
+              className="flex items-center pl-0"
             >
-              <span className="font-dm-sans text-2xl font-bold text-main-black">
+              <span className="font-dm-sans text-2xl lg:text-3xl font-bold text-main-black">
                 j.amrm
               </span>
             </a>
 
             {/* Desktop Nav */}
-            <div className="flex items-center justify-center flex-1">
+            <div className="flex items-center justify-center flex-1 px-4 lg:px-8">
               <NavigationMenu>
-                <NavigationMenuList className="flex flex-row items-center gap-8">
+                <NavigationMenuList className="flex flex-row items-center gap-4 lg:gap-8">
                   {navigationItems.map((item) => (
                     <NavigationMenuItem key={item.name}>
                       <NavigationMenuLink asChild>
@@ -119,7 +124,7 @@ const Header: React.FC = () => {
                         >
                           <RollingLink
                             to={item.href}
-                            className={`font-heading-2 text-base tracking-[var(--navigation-letter-spacing)] leading-[var(--navigation-line-height)] ${
+                            className={`font-heading-2 text-sm lg:text-base tracking-[var(--navigation-letter-spacing)] leading-[var(--navigation-line-height)] ${
                               (location.pathname === "/" &&
                                 item.href.startsWith("/#")) ||
                               location.pathname === item.href
@@ -138,7 +143,7 @@ const Header: React.FC = () => {
             </div>
 
             {/* Language Switcher */}
-            <div className="flex items-center">
+            <div className="flex items-center pr-0">
               <LanguageSwitcher i18n={i18n} />
             </div>
           </div>
