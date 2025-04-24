@@ -49,7 +49,7 @@ export const About = (): JSX.Element => {
   ];
 
   return (
-    <section className="space-y-24 mb-16">
+    <section className="space-y-16 mb-12">
       {/* About Section */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
         {/* Left column for heading */}

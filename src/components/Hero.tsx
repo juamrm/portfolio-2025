@@ -7,7 +7,7 @@ export const Hero = (): JSX.Element => {
   return (
     <section
       id="hero"
-      className="min-h-[70vh] flex items-center justify-center py-8 md:py-12"
+      className="min-h-[50vh] flex items-center justify-center py-4 md:py-6"
     >
       <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-center">
         {/* Left column with heading */}

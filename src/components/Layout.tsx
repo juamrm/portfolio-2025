@@ -18,7 +18,7 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
         <Header />
 
         {/* Main Content */}
-        <main className="w-full mt-16 md:mt-20 pb-16 md:pb-24">{children}</main>
+        <main className="w-full mt-12 md:mt-16 pb-16 md:pb-24">{children}</main>
 
         {isHomePage && <Contact />}
         <Footer />
