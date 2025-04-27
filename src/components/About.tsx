@@ -61,12 +61,12 @@ export const About = (): JSX.Element => {
 
         {/* Right column for content */}
         <div className="md:col-span-8">
-          <div className="space-y-6">
-            <p className="font-dm-sans text-base md:text-[length:var(--body-font-size)] text-main-gray tracking-[var(--body-letter-spacing)] leading-[var(--body-line-height)]">
+          <div className="space-y-10">
+            <p className="font-dm-sans text-base md:text-[15px] text-main-gray tracking-[var(--body-letter-spacing)] leading-[var(--body-line-height)]">
               {t("about.introduction")}
             </p>
 
-            <div className="space-y-6 pl-0">
+            <div className="space-y-8 pl-0 mt-8">
               {educationItems.map((item) => (
                 <div
                   key={item.key}
