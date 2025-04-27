@@ -12,7 +12,7 @@ export const About = (): JSX.Element => {
   const tools = [
     {
       category: "productivity",
-      items: ["OFFICE", "GOOGLE SUITE", "NOTION"],
+      items: ["GOOGLE SUITE", "NOTION"],
     },
     {
       category: "design",
@@ -62,7 +62,7 @@ export const About = (): JSX.Element => {
         {/* Right column for content */}
         <div className="md:col-span-8">
           <div className="space-y-6">
-            <p className="font-dm-sans text-sm md:text-[length:var(--body-font-size)] text-main-gray tracking-[var(--body-letter-spacing)] leading-[var(--body-line-height)]">
+            <p className="font-dm-sans text-base md:text-[length:var(--body-font-size)] text-main-gray tracking-[var(--body-letter-spacing)] leading-[var(--body-line-height)]">
               {t("about.introduction")}
             </p>
 
@@ -75,7 +75,7 @@ export const About = (): JSX.Element => {
                   <h3 className="font-dm-sans text-base md:text-lg text-main-black tracking-[var(--heading-2-letter-spacing)] leading-[var(--heading-2-line-height)] mb-2">
                     {t(`about.education.${item.key}.title`)}
                   </h3>
-                  <p className="font-dm-sans text-sm md:text-[length:var(--body-font-size)] text-main-gray tracking-[var(--body-letter-spacing)] leading-[var(--body-line-height)]">
+                  <p className="font-dm-sans text-base md:text-[length:var(--body-font-size)] text-main-gray tracking-[var(--body-letter-spacing)] leading-[var(--body-line-height)]">
                     {t(`about.education.${item.key}.description`)}
                   </p>
                 </div>

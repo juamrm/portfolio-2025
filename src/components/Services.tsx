@@ -23,8 +23,8 @@ export const Services = (): JSX.Element => {
 
   const languages = [
     { language: "Portuguese", level: "Native", percentage: "100%" },
-    { language: "Spanish", level: "Fluent", percentage: "95%" },
-    { language: "English", level: "Fluent", percentage: "90%" },
+    { language: "Spanish", level: "Full Professional", percentage: "95%" },
+    { language: "English", level: "Full Professional", percentage: "90%" },
   ];
 
   return (
