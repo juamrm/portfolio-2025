@@ -44,7 +44,7 @@ export const About = (): JSX.Element => {
     },
     {
       category: "other",
-      items: ["CMS", "CHATGPT", "RELUME"],
+      items: ["CMS", "CHATGPT", "PERPLEXITYAI", "RELUME"],
     },
   ];
 
@@ -102,7 +102,7 @@ export const About = (): JSX.Element => {
                   category.category === "development" ? "col-span-2" : ""
                 }
               >
-                <h3 className="font-dm-sans text-xs uppercase tracking-wider text-main-black mb-3 opacity-80">
+                <h3 className="font-dm-sans text-xs uppercase tracking-wider text-main-black font-semibold mb-3 opacity-80">
                   {t(`about.categories.${category.category}`)}
                 </h3>
                 <div className="space-y-1.5">
