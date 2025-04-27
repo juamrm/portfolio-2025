@@ -120,7 +120,22 @@
         "label": "Mensagem",
         "placeholder": "Me conte sobre seu projeto..."
       },
-      "submit": "Enviar Mensagem"
+      "submit": "Enviar Mensagem",
+      "submitting": "Enviando...",
+      "successMessage": "Obrigada! Sua mensagem foi enviada com sucesso. Entrarei em contato em breve.",
+      "errorMessage": "Ops! Algo deu errado. Por favor, tente novamente ou entre em contato diretamente por email.",
+      "fixErrorsMessage": "Por favor, corrija os erros antes de enviar o formulário.",
+      "errors": {
+        "nameRequired": "Por favor, digite seu nome",
+        "nameMinLength": "O nome deve ter pelo menos 2 caracteres",
+        "emailRequired": "Por favor, digite seu endereço de email",
+        "emailInvalid": "Por favor, digite um endereço de email válido",
+        "messageRequired": "Por favor, digite sua mensagem",
+        "messageMinLength": "A mensagem deve ter pelo menos 10 caracteres para fornecer detalhes suficientes"
+      },
+      "validation": {
+        "valid": "Perfeito!"
+      }
     },
     "cta": {
       "title": "Vamos trabalhar juntos",

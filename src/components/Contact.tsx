@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import emailjs from "@emailjs/browser";
 
@@ -13,6 +13,14 @@ interface FormErrors {
   email?: string;
   message?: string;
 }
+
+type FieldValidationState = {
+  [key in keyof FormData]?: {
+    valid: boolean;
+    touched: boolean;
+    error?: string;
+  };
+};
 
 export const ContactIcons = () => {
   return (
@@ -67,37 +75,108 @@ export const ContactIcons = () => {
 
 export const Contact = (): JSX.Element => {
   const { t } = useTranslation();
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     message: "",
   });
   const [errors, setErrors] = useState<FormErrors>({});
+  const [fieldState, setFieldState] = useState<FieldValidationState>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "success" | "error"
   >("idle");
+  const [formTouched, setFormTouched] = useState(false);
+
+  const validateField = (
+    name: keyof FormData,
+    value: string
+  ): { valid: boolean; error?: string } => {
+    switch (name) {
+      case "name":
+        if (!value.trim()) {
+          return { valid: false, error: t("contact.form.errors.nameRequired") };
+        }
+        if (value.trim().length < 2) {
+          return {
+            valid: false,
+            error: t("contact.form.errors.nameMinLength"),
+          };
+        }
+        return { valid: true };
+
+      case "email":
+        if (!value.trim()) {
+          return {
+            valid: false,
+            error: t("contact.form.errors.emailRequired"),
+          };
+        }
+        // More comprehensive email validation
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(value)) {
+          return { valid: false, error: t("contact.form.errors.emailInvalid") };
+        }
+        return { valid: true };
+
+      case "message":
+        if (!value.trim()) {
+          return {
+            valid: false,
+            error: t("contact.form.errors.messageRequired"),
+          };
+        }
+        if (value.trim().length < 10) {
+          return {
+            valid: false,
+            error: t("contact.form.errors.messageMinLength"),
+          };
+        }
+        return { valid: true };
+
+      default:
+        return { valid: true };
+    }
+  };
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
+    const newFieldState: FieldValidationState = {};
+    let isValid = true;
 
-    if (!formData.name.trim()) {
-      newErrors.name = t("contact.form.errors.nameRequired");
-    }
+    // Validate each field and update both errors and fieldState
+    Object.entries(formData).forEach(([key, value]) => {
+      const fieldName = key as keyof FormData;
+      const validation = validateField(fieldName, value);
 
-    if (!formData.email.trim()) {
-      newErrors.email = t("contact.form.errors.emailRequired");
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = t("contact.form.errors.emailInvalid");
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = t("contact.form.errors.messageRequired");
-    }
+      if (!validation.valid) {
+        newErrors[fieldName] = validation.error;
+        newFieldState[fieldName] = {
+          valid: false,
+          touched: true,
+          error: validation.error,
+        };
+        isValid = false;
+      } else {
+        newFieldState[fieldName] = {
+          valid: true,
+          touched: fieldState[fieldName]?.touched || false,
+        };
+      }
+    });
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    setFieldState(newFieldState);
+    return isValid;
   };
+
+  // Initialize EmailJS with your public key
+  useEffect(() => {
+    // Initialize EmailJS with your public key
+    // You should replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
+    emailjs.init("YOUR_PUBLIC_KEY");
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -110,6 +189,7 @@ export const Contact = (): JSX.Element => {
     setSubmitStatus("idle");
 
     try {
+      // Method 1: Using send method
       await emailjs.send(
         "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
         "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
@@ -118,9 +198,19 @@ export const Contact = (): JSX.Element => {
           from_email: formData.email,
           message: formData.message,
           to_name: "Juliana",
-        },
-        "YOUR_PUBLIC_KEY" // Replace with your EmailJS public key
+        }
+        // Public key is now initialized in useEffect
       );
+
+      // Method 2 (Alternative): Using sendForm method with form reference
+      // if (formRef.current) {
+      //   await emailjs.sendForm(
+      //     "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
+      //     "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
+      //     formRef.current
+      //     // Public key is now initialized in useEffect
+      //   );
+      // }
 
       setSubmitStatus("success");
       setFormData({ name: "", email: "", message: "" });
@@ -136,15 +226,59 @@ export const Contact = (): JSX.Element => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
+    const fieldName = name as keyof FormData;
+
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [fieldName]: value,
     }));
+
+    // Set form as touched once user starts typing
+    if (!formTouched) {
+      setFormTouched(true);
+    }
+
+    // Mark field as touched
+    setFieldState((prev) => ({
+      ...prev,
+      [fieldName]: {
+        ...prev[fieldName],
+        touched: true,
+        ...validateField(fieldName, value),
+      },
+    }));
+
     // Clear error when user starts typing
-    if (errors[name as keyof FormErrors]) {
+    if (errors[fieldName]) {
       setErrors((prev) => ({
         ...prev,
-        [name]: undefined,
+        [fieldName]: undefined,
+      }));
+    }
+  };
+
+  const handleBlur = (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    const fieldName = name as keyof FormData;
+    const validation = validateField(fieldName, value);
+
+    // Update field state
+    setFieldState((prev) => ({
+      ...prev,
+      [fieldName]: {
+        touched: true,
+        valid: validation.valid,
+        error: validation.error,
+      },
+    }));
+
+    // Update errors state for rendering error messages
+    if (!validation.valid) {
+      setErrors((prev) => ({
+        ...prev,
+        [fieldName]: validation.error,
       }));
     }
   };
@@ -167,7 +301,7 @@ export const Contact = (): JSX.Element => {
 
           {/* Right Column - Contact Form */}
           <div className="bg-[#f8f8f8] p-8 rounded-2xl">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label
                   htmlFor="name"
@@ -181,16 +315,62 @@ export const Contact = (): JSX.Element => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
+                  onBlur={handleBlur}
+                  aria-invalid={errors.name ? "true" : "false"}
+                  aria-describedby={errors.name ? "name-error" : undefined}
                   className={`w-full px-4 py-3 rounded-xl bg-white border transition-colors duration-200 font-dm-sans ${
                     errors.name
-                      ? "border-red-500"
+                      ? "border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                      : fieldState.name?.valid && fieldState.name?.touched
+                      ? "border-green-500 focus:border-green-500 focus:ring-1 focus:ring-green-500"
                       : "border-gray-200 focus:border-app-secondary focus:ring-1 focus:ring-app-secondary"
                   }`}
                   placeholder={t("contact.form.name.placeholder")}
+                  required
                 />
                 {errors.name && (
-                  <p className="mt-1 text-sm text-red-500">{errors.name}</p>
+                  <p
+                    id="name-error"
+                    className="mt-1 text-sm text-red-500 flex items-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 mr-1"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                      />
+                    </svg>
+                    {errors.name}
+                  </p>
                 )}
+                {fieldState.name?.valid &&
+                  fieldState.name?.touched &&
+                  !errors.name && (
+                    <p className="mt-1 text-sm text-green-500 flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4 mr-1"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      {t("contact.form.validation.valid")}
+                    </p>
+                  )}
               </div>
 
               <div>
@@ -206,16 +386,62 @@ export const Contact = (): JSX.Element => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
+                  onBlur={handleBlur}
+                  aria-invalid={errors.email ? "true" : "false"}
+                  aria-describedby={errors.email ? "email-error" : undefined}
                   className={`w-full px-4 py-3 rounded-xl bg-white border transition-colors duration-200 font-dm-sans ${
                     errors.email
-                      ? "border-red-500"
+                      ? "border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                      : fieldState.email?.valid && fieldState.email?.touched
+                      ? "border-green-500 focus:border-green-500 focus:ring-1 focus:ring-green-500"
                       : "border-gray-200 focus:border-app-secondary focus:ring-1 focus:ring-app-secondary"
                   }`}
                   placeholder={t("contact.form.email.placeholder")}
+                  required
                 />
                 {errors.email && (
-                  <p className="mt-1 text-sm text-red-500">{errors.email}</p>
+                  <p
+                    id="email-error"
+                    className="mt-1 text-sm text-red-500 flex items-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 mr-1"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                      />
+                    </svg>
+                    {errors.email}
+                  </p>
                 )}
+                {fieldState.email?.valid &&
+                  fieldState.email?.touched &&
+                  !errors.email && (
+                    <p className="mt-1 text-sm text-green-500 flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4 mr-1"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      {t("contact.form.validation.valid")}
+                    </p>
+                  )}
               </div>
 
               <div>
@@ -230,30 +456,137 @@ export const Contact = (): JSX.Element => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   rows={5}
+                  aria-invalid={errors.message ? "true" : "false"}
+                  aria-describedby={
+                    errors.message ? "message-error" : undefined
+                  }
                   className={`w-full px-4 py-3 rounded-xl bg-white border transition-colors duration-200 font-dm-sans resize-none ${
                     errors.message
-                      ? "border-red-500"
+                      ? "border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                      : fieldState.message?.valid && fieldState.message?.touched
+                      ? "border-green-500 focus:border-green-500 focus:ring-1 focus:ring-green-500"
                       : "border-gray-200 focus:border-app-secondary focus:ring-1 focus:ring-app-secondary"
                   }`}
                   placeholder={t("contact.form.message.placeholder")}
+                  required
                 />
                 {errors.message && (
-                  <p className="mt-1 text-sm text-red-500">{errors.message}</p>
+                  <p
+                    id="message-error"
+                    className="mt-1 text-sm text-red-500 flex items-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 mr-1"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                      />
+                    </svg>
+                    {errors.message}
+                  </p>
                 )}
+                {fieldState.message?.valid &&
+                  fieldState.message?.touched &&
+                  !errors.message && (
+                    <p className="mt-1 text-sm text-green-500 flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4 mr-1"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      {t("contact.form.validation.valid")}
+                    </p>
+                  )}
               </div>
 
               {submitStatus === "success" && (
-                <div className="p-4 bg-green-50 text-green-700 rounded-xl">
+                <div
+                  className="p-4 bg-green-50 text-green-700 rounded-xl flex items-center"
+                  role="alert"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
                   {t("contact.form.successMessage")}
                 </div>
               )}
 
               {submitStatus === "error" && (
-                <div className="p-4 bg-red-50 text-red-700 rounded-xl">
+                <div
+                  className="p-4 bg-red-50 text-red-700 rounded-xl flex items-center"
+                  role="alert"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
                   {t("contact.form.errorMessage")}
                 </div>
               )}
+
+              {formTouched &&
+                Object.keys(errors).length > 0 &&
+                submitStatus === "idle" && (
+                  <div
+                    className="p-4 bg-yellow-50 text-yellow-700 rounded-xl flex items-center"
+                    role="alert"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 mr-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                      />
+                    </svg>
+                    {t("contact.form.fixErrorsMessage")}
+                  </div>
+                )}
 
               <button
                 type="submit"

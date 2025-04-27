@@ -120,7 +120,22 @@
         "label": "Message",
         "placeholder": "Tell me about your project..."
       },
-      "submit": "Send Message"
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "successMessage": "Thank you! Your message has been sent successfully. I'll get back to you soon.",
+      "errorMessage": "Oops! Something went wrong. Please try again or contact me directly via email.",
+      "fixErrorsMessage": "Please correct the errors before submitting the form.",
+      "errors": {
+        "nameRequired": "Please enter your name",
+        "nameMinLength": "Name must be at least 2 characters long",
+        "emailRequired": "Please enter your email address",
+        "emailInvalid": "Please enter a valid email address",
+        "messageRequired": "Please enter your message",
+        "messageMinLength": "Message should be at least 10 characters to provide enough details"
+      },
+      "validation": {
+        "valid": "Looks good!"
+      }
     },
     "cta": {
       "title": "Let's work together",
