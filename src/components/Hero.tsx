@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import profileSVG from "../assets/Foto Juliana 1.svg";
+import profilePic from "../assets/profilepic.jpg";
 
 export const Hero = (): JSX.Element => {
   const { t } = useTranslation();
@@ -22,11 +22,14 @@ export const Hero = (): JSX.Element => {
 
         {/* Right column with image */}
         <div className="md:col-span-6 flex justify-center items-center">
-          <div className="w-[200px] h-[200px] overflow-hidden rounded-full border-4 border-[#f8f8f8] shadow-lg">
+          <div
+            className="w-[320px] h-[180px] overflow-hidden border-1 border-[#f8f8f8] shadow-lg"
+            style={{ borderRadius: "20px" }}
+          >
             <img
               className="w-full h-full object-cover object-center"
               alt="Profile photo"
-              src={profileSVG}
+              src={profilePic}
             />
           </div>
         </div>
