@@ -7,16 +7,16 @@ export const Hero = (): JSX.Element => {
   return (
     <section
       id="hero"
-      className="min-h-[50vh] flex items-center justify-center pt-16 pb-4 md:py-6 mt-8 md:mt-0"
+      className="min-h-[60vh] flex items-center justify-center pt-20 pb-8 md:py-12 mt-8 md:mt-0"
     >
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
         {/* Left column with heading */}
         <div className="md:col-span-6 flex flex-col justify-center">
           <h1 className="font-dm-sans text-[2.5rem] md:text-[3.5rem] text-main-black tracking-[var(--heading-1-letter-spacing)] leading-[1.2]">
-            {t("hero.greeting")}
+            {t("hero.headline")}
           </h1>
-          <p className="mt-4 font-dm-sans text-lg md:text-base text-main-gray tracking-[var(--body-letter-spacing)] leading-[var(--body-line-height)]">
-            {t("hero.description")}
+          <p className="mt-6 font-dm-sans text-lg md:text-base text-main-gray tracking-[var(--body-letter-spacing)] leading-[var(--body-line-height)]">
+            {t("hero.subline")}
           </p>
         </div>
 

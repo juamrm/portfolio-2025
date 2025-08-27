@@ -60,7 +60,7 @@ export const Services = (): JSX.Element => {
                   {languages.map((lang) => (
                     <div key={lang.language} className="space-y-1.5">
                       <div className="flex justify-between items-center gap-4">
-                        <span className="font-dm-sans text-sm text-main-black">
+                        <span className="font-dm-sans text-sm text-app-secondary">
                           {lang.language}
                         </span>
                         <span className="text-xs text-app-secondary/70 font-medium whitespace-nowrap">

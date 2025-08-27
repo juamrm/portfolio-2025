@@ -49,7 +49,7 @@ export const About = (): JSX.Element => {
   ];
 
   return (
-    <section className="space-y-16 mb-12">
+    <section className="space-y-24 mb-12">
       {/* About Section */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
         {/* Left column for heading */}
@@ -63,7 +63,7 @@ export const About = (): JSX.Element => {
         <div className="md:col-span-8">
           <div className="space-y-10">
             <p className="font-dm-sans text-base md:text-[15px] text-main-gray tracking-[var(--body-letter-spacing)] leading-[var(--body-line-height)]">
-              {t("about.introduction")}
+              {t("about.introductionNew")}
             </p>
 
             <div className="space-y-8 pl-0 mt-8">

@@ -6,14 +6,15 @@
     "contact": "Contacto"
   },
   "hero": {
-    "greeting": "Hola, soy Juliana Amorim",
-    "description": "Transformando ideas en experiencias digitales excepcionales. Desarrolladora Full-Stack y Diseñadora UX/UI apasionada por crear soluciones centradas en el usuario que generan impacto."
+    "headline": "Diseñando y construyendo productos digitales que la gente ama.",
+    "subline": "Desarrolladora Full-Stack y Diseñadora UX/UI enfocada en soluciones centradas en el usuario y accesibles."
   },
   "about": {
     "stack": "Mi Stack Tecnológico y Herramientas",
     "mainSkills": "Habilidades Principales",
     "title": "Sobre Mí",
     "introduction": "¡Hola! Soy desarrolladora web full-stack y diseñadora de productos con más de 15 años de experiencia en producción de contenido. A lo largo de mi carrera, he liderado una amplia gama de proyectos y colaborado con equipos y clientes de todo el mundo, especialmente en los sectores de tecnología y eventos.\n\nMi pasión por la interactividad y la tecnología me llevó a hacer una transición natural hacia el diseño digital y el desarrollo web. Lo que me impulsa es crear productos digitales que van más allá de la funcionalidad: productos que son verdaderamente accesibles, atractivos y centrados en las necesidades humanas reales.",
+    "introductionNew": "¡Hola! Soy desarrolladora full-stack y diseñadora de productos con más de 15 años de experiencia transformando ideas en productos digitales atractivos. He liderado proyectos en tecnología y eventos, colaborando con equipos de todo el mundo. Mi pasión está en crear soluciones que combinan funcionalidad con excelente diseño — productos que son accesibles, intuitivos y construidos en torno a las necesidades humanas reales.",
     "categories": {
       "productivity": "Productividad",
       "design": "Diseño",
