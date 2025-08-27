@@ -22,9 +22,21 @@ export const Services = (): JSX.Element => {
   ];
 
   const languages = [
-    { language: "Portuguese", level: "Native", percentage: "100%" },
-    { language: "Spanish", level: "Full Professional", percentage: "95%" },
-    { language: "English", level: "Full Professional", percentage: "90%" },
+    {
+      language: t("languages.portuguese"),
+      level: t("languages.native"),
+      percentage: "100%",
+    },
+    {
+      language: t("languages.spanish"),
+      level: t("languages.fullProfessional"),
+      percentage: "90%",
+    },
+    {
+      language: t("languages.english"),
+      level: t("languages.fullProfessional"),
+      percentage: "90%",
+    },
   ];
 
   return (
@@ -40,24 +52,24 @@ export const Services = (): JSX.Element => {
               </h2>
 
               {/* Languages Section */}
-              <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                <h3 className="font-dm-sans text-lg text-main-black mb-4">
-                  Languages
+              <div className="w-full md:w-auto mx-auto md:mx-0 bg-white p-4 sm:p-5 rounded-xl shadow-sm border border-gray-100 md:sticky md:top-24">
+                <h3 className="font-dm-sans text-base sm:text-lg text-main-black mb-4">
+                  {t("languages.title")}
                 </h3>
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {languages.map((lang) => (
                     <div key={lang.language} className="space-y-1.5">
-                      <div className="flex justify-between items-center">
+                      <div className="flex justify-between items-center gap-4">
                         <span className="font-dm-sans text-sm text-main-black">
                           {lang.language}
                         </span>
-                        <span className="text-sm text-app-secondary font-medium">
+                        <span className="text-xs text-app-secondary/70 font-medium whitespace-nowrap">
                           {lang.level}
                         </span>
                       </div>
                       <div className="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-app-secondary/20 rounded-full transition-all duration-500 ease-out"
+                          className="h-full bg-app-secondary/40 rounded-full transition-all duration-500 ease-out"
                           style={{ width: lang.percentage }}
                         />
                       </div>

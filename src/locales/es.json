@@ -73,6 +73,14 @@
       }
     }
   },
+  "languages": {
+    "title": "Idiomas",
+    "portuguese": "Portugués",
+    "spanish": "Español",
+    "english": "Inglés",
+    "native": "Nativo",
+    "fullProfessional": "Profesional Completo"
+  },
   "projects": {
     "title": "Proyectos Seleccionados",
     "introduction": "Explora mi portafolio que muestra una combinación de desarrollo web moderno, diseño intuitivo y experiencia técnica. Cada proyecto representa un desafío único en la creación de experiencias digitales que combinan estética con funcionalidad.",

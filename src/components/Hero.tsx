@@ -22,12 +22,9 @@ export const Hero = (): JSX.Element => {
 
         {/* Right column with image */}
         <div className="md:col-span-6 flex justify-center items-center">
-          <div
-            className="w-[320px] h-[180px] overflow-hidden border-1 border-[#f8f8f8] shadow-lg"
-            style={{ borderRadius: "20px" }}
-          >
+          <div className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 overflow-hidden border border-[#f8f8f8] shadow-xl rounded-3xl">
             <img
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300 ease-in-out"
               alt="Profile photo"
               src={profilePic}
             />

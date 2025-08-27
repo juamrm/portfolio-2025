@@ -84,6 +84,14 @@
       }
     }
   },
+  "languages": {
+    "title": "Languages",
+    "portuguese": "Portuguese",
+    "spanish": "Spanish",
+    "english": "English",
+    "native": "Native",
+    "fullProfessional": "Full Professional"
+  },
   "projects": {
     "title": "Selected Projects",
     "introduction": "Explore my portfolio showcasing a blend of modern web development, intuitive design, and technical expertise. Each project represents a unique challenge in creating seamless digital experiences that combine aesthetics with functionality.",
