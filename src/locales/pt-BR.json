@@ -102,15 +102,18 @@
     "items": {
       "webDesign": {
         "title": "Design Web",
-        "description": "Design Moderno e Responsivo"
+        "description": "Design Moderno e Responsivo",
+        "fullDescription": "Uma seleção de sites modernos e responsivos, landing pages e experiências de conteúdo. Foco em UI baseada em componentes, acessibilidade, performance e sistemas de design sustentáveis."
       },
       "webDevelopment": {
         "title": "Desenvolvimento Web",
-        "description": "Aplicações Full-Stack"
+        "description": "Aplicações Full-Stack",
+        "fullDescription": "Aplicações fim a fim com TypeScript, frameworks modernos e arquiteturas limpas. Ênfase em DX, testes, escalabilidade e pipelines CI/CD robustos."
       },
       "uiUxDesign": {
         "title": "Design UI/UX",
-        "description": "Interface e Experiência do Usuário"
+        "description": "Interface e Experiência do Usuário",
+        "fullDescription": "UX orientada por pesquisa e UI refinada. Do discovery e fluxos de usuário a wireframes, protótipos e sistemas de design que escalam entre plataformas."
       }
     }
   },

@@ -33,10 +33,21 @@
       "miro": "Miro",
       "jira": "Jira",
       "asana": "Asana",
+      "html": "HTML",
       "css": "CSS",
       "javascript": "JavaScript",
+      "typescript": "TypeScript",
       "react": "React",
-      "saas": "SaaS",
+      "vue": "Vue.js",
+      "tailwindcss": "Tailwind CSS",
+      "sass": "Sass",
+      "docker": "Docker",
+      "vite": "Vite",
+      "netlify": "Netlify",
+      "gsap": "GSAP",
+      "git": "Git",
+      "github": "GitHub",
+      "npm": "npm",
       "cms": "CMS",
       "others": "Herramientas IA",
       "relume": "Relume",
@@ -91,15 +102,18 @@
     "items": {
       "webDesign": {
         "title": "Diseño Web",
-        "description": "Diseño Moderno y Responsivo"
+        "description": "Diseño Moderno y Responsivo",
+        "fullDescription": "Una selección de sitios de marketing modernos y responsivos, landing pages y experiencias de contenido. Enfoque en UI basada en componentes, accesibilidad, rendimiento y sistemas de diseño mantenibles."
       },
       "webDevelopment": {
         "title": "Desarrollo Web",
-        "description": "Aplicaciones Full-Stack"
+        "description": "Aplicaciones Full-Stack",
+        "fullDescription": "Aplicaciones de extremo a extremo con TypeScript, frameworks modernos y arquitecturas limpias. Énfasis en DX, testing, escalabilidad y pipelines CI/CD robustos."
       },
       "uiUxDesign": {
         "title": "Diseño UI/UX",
-        "description": "Interfaz y Experiencia de Usuario"
+        "description": "Interfaz y Experiencia de Usuario",
+        "fullDescription": "UX basada en investigación y UI pulida. Desde discovery y user flows hasta wireframes, prototipos y sistemas de diseño que escalan en plataformas."
       }
     }
   },

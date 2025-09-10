@@ -6,7 +6,37 @@
   command = "npm run dev"
   port = 5173
 
+# Domain and HTTPS canonicalization redirects (run these first)
+[[redirects]]
+  from = "http://julianaamorim.com/*"
+  to = "https://julianaamorim.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.julianaamorim.com/*"
+  to = "https://julianaamorim.com/:splat"
+  status = 301
+  force = true
+
+# Ensure https www → apex on https as well
+[[redirects]]
+  from = "https://www.julianaamorim.com/*"
+  to = "https://julianaamorim.com/:splat"
+  status = 301
+  force = true
+
+# SPA fallback (must be last)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"

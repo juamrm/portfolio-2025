@@ -12,39 +12,39 @@ export const About = (): JSX.Element => {
   const tools = [
     {
       category: "productivity",
-      items: ["GOOGLE SUITE", "NOTION"],
+      items: ["googleSuite", "notion"],
     },
     {
       category: "design",
-      items: ["FIGMA", "WEBFLOW", "FRAMER", "ADOBE SUITE"],
+      items: ["figma", "webflow", "framer", "adobeSuite"],
     },
     {
       category: "projectManagement",
-      items: ["MIRO", "JIRA", "ASANA"],
+      items: ["miro", "jira", "asana"],
     },
     {
       category: "development",
       items: [
-        "HTML",
-        "CSS",
-        "JAVASCRIPT",
-        "TYPESCRIPT",
-        "REACT",
-        "VUE",
-        "TAILWINDCSS",
-        "SASS",
-        "DOCKER",
-        "VITE",
-        "NETLIFY",
-        "GSAP",
-        "GIT",
-        "GITHUB",
-        "NPM",
+        "html",
+        "css",
+        "javascript",
+        "typescript",
+        "react",
+        "vue",
+        "tailwindcss",
+        "sass",
+        "docker",
+        "vite",
+        "netlify",
+        "gsap",
+        "git",
+        "github",
+        "npm",
       ],
     },
     {
       category: "other",
-      items: ["CMS", "CHATGPT", "PERPLEXITYAI", "RELUME"],
+      items: ["cms", "others", "relume", "designSystem"],
     },
   ];
 
@@ -89,7 +89,7 @@ export const About = (): JSX.Element => {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
         <div className="md:col-span-4">
           <h2 className="font-dm-sans text-base md:text-lg text-main-black tracking-[var(--heading-2-letter-spacing)] leading-[var(--heading-2-line-height)]">
-            Stack
+            {t("about.stack")}
           </h2>
         </div>
 
@@ -111,7 +111,7 @@ export const About = (): JSX.Element => {
                       key={tool}
                       className="inline-block mr-2 mb-2 px-3 py-1 rounded-full bg-[#FAFAFA] text-xs text-main-gray transition-colors duration-300 hover:bg-app-secondary/5 border border-gray-100"
                     >
-                      {tool}
+                      {t(`about.tools.${tool}`)}
                     </div>
                   ))}
                 </div>

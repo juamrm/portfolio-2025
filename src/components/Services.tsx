@@ -52,24 +52,24 @@ export const Services = (): JSX.Element => {
               </h2>
 
               {/* Languages Section */}
-              <div className="w-full md:w-auto mx-auto md:mx-0 bg-white p-4 sm:p-5 rounded-xl shadow-sm border border-gray-100 md:sticky md:top-24">
+              <div className="w-full md:w-full mx-auto md:mx-0 bg-white p-4 sm:p-5 rounded-xl shadow-sm border border-gray-100 md:sticky md:top-24">
                 <h3 className="font-dm-sans text-base sm:text-lg text-main-black mb-4">
                   {t("languages.title")}
                 </h3>
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {languages.map((lang) => (
-                    <div key={lang.language} className="space-y-1.5">
+                    <div key={lang.language} className="space-y-2.5">
                       <div className="flex justify-between items-center gap-4">
                         <span className="font-dm-sans text-sm text-app-secondary">
                           {lang.language}
                         </span>
-                        <span className="text-xs text-app-secondary/70 font-medium whitespace-nowrap">
+                        <span className="text-xs text-main-black font-medium whitespace-nowrap">
                           {lang.level}
                         </span>
                       </div>
-                      <div className="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+                      <div className="w-full h-[6px] bg-gray-100 rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-app-secondary/40 rounded-full transition-all duration-500 ease-out"
+                          className="h-full bg-gray-200 rounded-full transition-all duration-500 ease-out"
                           style={{ width: lang.percentage }}
                         />
                       </div>

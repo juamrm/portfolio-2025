@@ -102,15 +102,18 @@
     "items": {
       "webDesign": {
         "title": "Web Design",
-        "description": "Modern & Responsive Design"
+        "description": "Modern & Responsive Design",
+        "fullDescription": "A selection of modern, responsive marketing sites, landing pages, and content experiences. Focus on component-driven UI, accessibility, performance, and maintainable design systems."
       },
       "webDevelopment": {
         "title": "Web Development",
-        "description": "Full-Stack Applications"
+        "description": "Full-Stack Applications",
+        "fullDescription": "End-to-end applications with TypeScript, modern frameworks, and clean architectures. Emphasis on DX, testing, scalability, and robust CI/CD pipelines."
       },
       "uiUxDesign": {
         "title": "UI/UX Design",
-        "description": "User Interface & Experience"
+        "description": "User Interface & Experience",
+        "fullDescription": "Research-informed UX and polished UI. From discovery and user flows to wireframes, prototypes, and design systems that scale across platforms."
       }
     }
   },
