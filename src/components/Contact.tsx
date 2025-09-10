@@ -1,6 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import emailjs from "@emailjs/browser";
 
 interface FormData {
   name: string;
@@ -88,6 +87,22 @@ export const Contact = (): JSX.Element => {
     "idle" | "success" | "error"
   >("idle");
   const [formTouched, setFormTouched] = useState(false);
+  const [botField, setBotField] = useState("");
+
+  // Utility to serialize FormData to URL-encoded string
+  const toUrlEncoded = (form: HTMLFormElement): string => {
+    const data = new FormData(form);
+    // Ensure form-name exists
+    if (!data.get("form-name")) {
+      data.append("form-name", form.getAttribute("name") || "contact");
+    }
+    // Build URLSearchParams from FormData (includes honeypot field)
+    const params = new URLSearchParams();
+    data.forEach((value, key) => {
+      params.append(key, String(value));
+    });
+    return params.toString();
+  };
 
   const validateField = (
     name: keyof FormData,
@@ -171,13 +186,6 @@ export const Contact = (): JSX.Element => {
     return isValid;
   };
 
-  // Initialize EmailJS with your public key
-  useEffect(() => {
-    // Initialize EmailJS with your public key
-    // You should replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
-    emailjs.init("YOUR_PUBLIC_KEY");
-  }, []);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -185,35 +193,37 @@ export const Contact = (): JSX.Element => {
       return;
     }
 
+    // Honeypot: if bot field filled, silently succeed
+    if (botField) {
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
     try {
-      // Method 1: Using send method
-      await emailjs.send(
-        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
-        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-          to_name: "Juliana",
-        }
-        // Public key is now initialized in useEffect
-      );
+      // Submit to Netlify Forms via fetch using actual form fields
+      if (!formRef.current) {
+        throw new Error("Form ref is not available");
+      }
 
-      // Method 2 (Alternative): Using sendForm method with form reference
-      // if (formRef.current) {
-      //   await emailjs.sendForm(
-      //     "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
-      //     "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
-      //     formRef.current
-      //     // Public key is now initialized in useEffect
-      //   );
-      // }
+      const body = toUrlEncoded(formRef.current);
 
-      setSubmitStatus("success");
-      setFormData({ name: "", email: "", message: "" });
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body,
+      });
+
+      // Netlify may respond with 200 or 302; treat both as success
+      if (res.ok || res.status === 302) {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        throw new Error(`Unexpected response: ${res.status}`);
+      }
     } catch (error) {
       console.error("Failed to send email:", error);
       setSubmitStatus("error");
@@ -301,7 +311,27 @@ export const Contact = (): JSX.Element => {
 
           {/* Right Column - Contact Form */}
           <div className="bg-[#f8f8f8] p-8 rounded-2xl">
-            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+            <form
+              ref={formRef}
+              onSubmit={handleSubmit}
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              className="space-y-6"
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              {/* Honeypot field */}
+              <p className="hidden">
+                <label>
+                  Don’t fill this out:
+                  <input
+                    name="bot-field"
+                    value={botField}
+                    onChange={(e) => setBotField(e.target.value)}
+                  />
+                </label>
+              </p>
               <div>
                 <label
                   htmlFor="name"
